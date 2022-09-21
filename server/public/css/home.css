@@ -1,146 +1,57 @@
-.container {
-  height: 100%;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#content {
-  padding: 24px 96px;
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  overflow: hidden;
-  overflow-y: scroll;
-}
-
-#content header {
-  width: 100%;
-  left: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#content header #logo img {
-  height: 80px;
-}
-
-#content header #datetime #time {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-#content header #datetime #date {
-  margin-left: 8px;
-  font-size: 1rem;
-  opacity: .9;
-}
-
-#content #modules {
+#modules {
   margin-top: 32px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   height: 100%;
   gap: 72px;
 }
-
-#content #modules .modules {
-  display: -webkit-box;
-  display: -ms-flexbox;
+#modules .modules {
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 24px;
 }
-
-#content #modules .modules .module {
+#modules .modules .module {
   color: #222;
   cursor: pointer;
   border-radius: 8px;
   background-color: #EDE5DD;
-  -webkit-box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
   padding: 16px 24px;
   gap: 24px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
-
-#content #modules .modules .module .module-icon {
+#modules .modules .module .module-icon {
   height: 80%;
   text-align: center;
 }
-
-#content #modules .modules .module .module-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
+#modules .modules .module .module-info {
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 8px;
   width: 100%;
 }
-
-#content #modules .modules .module .module-info .module-title {
+#modules .modules .module .module-info .module-title {
   font-weight: 600;
   font-size: 1.1rem;
 }
-
-#content #modules .modules .module .module-info .module-description {
-  font-size: .8rem;
+#modules .modules .module .module-info .module-description {
+  font-size: 0.8rem;
 }
-
-#content #modules .modules .module .module-next {
+#modules .modules .module .module-next {
   color: #FEB667;
   font-size: 2rem;
 }
-
-#content #modules .emergent-products {
-  display: -webkit-box;
-  display: -ms-flexbox;
+#modules .emergent-products {
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 24px;
 }
-
-#content #modules .emergent-products-list {
+#modules .emergent-products-list {
   border-radius: 8px;
   padding-bottom: 12px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   gap: 32px;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   overflow-x: scroll;
-}
-/*# sourceMappingURL=home.css.map */
+}/*# sourceMappingURL=home.css.map */

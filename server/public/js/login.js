@@ -35,7 +35,7 @@ form.addEventListener('submit', (e) => {
                     if (authRes.passwordMatches) {
                         console.log('logado');
                         // if(confirm('logar?')){
-                            window.location = window.location.origin + '/html/home.html'
+                            window.location = window.location.origin + '/home'
                         // }
                     }
                     else {
