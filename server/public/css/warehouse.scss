@@ -45,13 +45,11 @@ $bg2-color: #E5D9CD;
         max-height: calc(64px*3);
 
         .dropdown-item {
-            height: 72px;
-            padding: 0 32px;
+            padding: 12px 24px;
             border-radius: 8px;
             color: $black;
             transition: all .1s ease-in-out;
             display: flex;
-            justify-content: space-between;
             align-items: center;
             gap: 32px;
 
@@ -61,16 +59,26 @@ $bg2-color: #E5D9CD;
 
             .dropdown-thumb{
                 height: 56px;
-                width: 80px;
+                width: 10%;
                 object-fit: cover;
                 border-radius: 8px;
                 background-color: $bg-color;
             }
 
             .dropdown-text{
-                width: 100%;
+                width: 30%;
+            }
+
+            .dropdown-desc{
+                width: 60%;
+                text-overflow: ellipsis;
+                word-wrap: break-word;
             }
         }
     }
 
+}
+
+.bold{
+    font-weight: 700;
 }

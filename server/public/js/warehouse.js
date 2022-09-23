@@ -8,9 +8,12 @@ searchInput.addEventListener('change', (e) => {
             dropdown.empty()
 
             js.forEach(product =>{
+                let title = product.title.toLowerCase().split(searchInput.value)
+
                 let productHtml = `<a href="#" class="dropdown-item">
                     <img src="${product.thumbnail}" alt="" class="dropdown-thumb">
-                    <span class="dropdown-text">${product.title}</span>
+                    <span class="dropdown-text">${title[0]}<span class="bold">${searchInput.value}</span>${title[1]}</span>
+                    <span class="dropdown-desc">${product.description}</span>
                 </a>`
 
                 $("#dropdown-search-list").append(productHtml)
