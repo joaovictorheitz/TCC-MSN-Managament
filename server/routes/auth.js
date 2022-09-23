@@ -8,11 +8,6 @@ const users = [
     }
 ]
 
-router.use(function timeLog(req, res, next) {
-    console.log('Time: ', Date.now());
-    next();
-});
-
 router.post('/login', function (req, res) {
     const userData = req.body
 

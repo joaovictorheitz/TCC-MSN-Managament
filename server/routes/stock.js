@@ -18,7 +18,7 @@ router.get('/search', function (req, res) {
 
     if (parseInt(limit) > 20) {
         res.send({
-            error: `limit parameter exceded max (${MAX_QUERY_LIMIT})`
+            error: `"limit" parameter exceded max (${MAX_QUERY_LIMIT})`
         })
         return
     }
@@ -30,7 +30,6 @@ router.get('/search', function (req, res) {
     console.log(query);
 
     products.products.forEach(product => {
-        console.log('oi');
         if (product.title.toLowerCase().includes(query.toLowerCase()) && l < limit) {
             data.push({
                 title: product.title,

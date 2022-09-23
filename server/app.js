@@ -4,11 +4,23 @@ const auth = require('./routes/auth')
 const app = express()
 const PORT = 3000
 
+
+app.use("/", (req, res, next) => {
+    console.log("boa sorte maninho")
+    next()
+})
+
+app.use(function timeLog(req, res, next) {
+    console.log('Time: ', Date.now());
+    next();
+});
+
 app.use(express.static('./public', {
     extensions: [ 'html', 'htm' ]
 }));
 
 app.use(express.json());
+
 app.use('/auth', auth)
 app.use('/stock', stock)
 
