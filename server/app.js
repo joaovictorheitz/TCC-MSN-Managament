@@ -2,6 +2,7 @@ const express = require('express')
 const stock = require('./routes/stock')
 const auth = require('./routes/auth')
 const app = express()
+// const db = require("./routes/db")
 const PORT = 3000
 
 

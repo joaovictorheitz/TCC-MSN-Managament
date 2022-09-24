@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+// var db = require("./db")
 
 const users = [
     {
@@ -8,7 +9,10 @@ const users = [
     }
 ]
 
-router.post('/login', function (req, res) {
+router.post('/login', async function (req, res) {
+
+    // const users = await db.selectUser()
+
     const userData = req.body
 
     let userAuth = {
@@ -16,7 +20,7 @@ router.post('/login', function (req, res) {
         passwordMatches: false,
     }
 
-    users.every(user => {
+    users.forEach(user => {
         if (user.username == userData.username) {
             userAuth.userExists = true;
             if (user.password == userData.password) {
