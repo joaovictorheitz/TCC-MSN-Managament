@@ -4,20 +4,39 @@ searchInput.addEventListener('change', (e) => {
     fetch(
         location.origin + `/stock/search?q=${searchInput.value}&limit=20`)
         .then(r => r.json().then(js => {
-            const dropdown = $("#dropdown-search-list")
-            dropdown.empty()
+            const products = $("#products")
+            products.empty()
 
-            js.forEach(product =>{
+            js.forEach(product => {
                 let title = product.title.toLowerCase().split(searchInput.value)
 
-                let productHtml = `<a href="#" class="dropdown-item">
-                    <img src="${product.thumbnail}" alt="" class="dropdown-thumb">
-                    <span class="dropdown-text">${title[0]}<span class="bold">${searchInput.value}</span>${title[1]}</span>
-                    <span class="dropdown-desc">${product.description}</span>
-                </a>`
+                let productHtml = `
+                <div class="product-card">
+                    <img class="product-image" src="${product.thumbnail}">
+                    <div class="product-info">
+                        <span class="product-name">${product.title}</span>
 
-                $("#dropdown-search-list").append(productHtml)
+                        <div class="product-data">
+                            <div class="product-data-tag">
+                                <span class="product-data-title">Preço</span>
+                                <span class="product-data">R$ ${product.price}</span>
+                            </div>
+                            <div class="product-data-tag">
+                                <span class="product-data-title">Em estoque</span>
+                                <span class="product-data">${product.in_stock}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                `
+
+                products.append(productHtml)
             })
         })
         )
 })
+
+for (let i = 0; i < 19; i++) {
+    $('#oi').clone().appendTo('#products')
+}

@@ -43,6 +43,7 @@ html {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-bottom: 32px;
 
         #logo {
             img {
@@ -151,16 +152,16 @@ html {
     box-shadow: $shadow;
     display: flex;
     background-color: $bg-color;
-    padding: 16px 32px;
-    gap: 16px;
+    padding: 12px 20px;
+    gap: 24px;
     border-radius: 8px;
     align-items: center;
-    width: 520px;
+    // max-width: 520px;
 
     .product-image {
         height: 92px;
         width: 92px;
-        object-fit: cover;
+        object-fit: contain;
         border-radius: 8px;
     }
 
@@ -168,25 +169,31 @@ html {
         display: flex;
         flex-direction: column;
         gap: 8px;
-        width: max-content;
+        width: 80%;
         height: fit-content;
+        overflow: hidden;
 
         .product-name {
             font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            display: block;
+            text-overflow: ellipsis;
         }
 
         .product-data {
             display: flex;
             justify-content: space-between;
+            gap: 24px;
 
             .product-data-title {
                 font-weight: 400;
-                font-size: .8rem;
+                font-size: .75rem;
             }
 
             .product-data {
                 font-weight: 500;
-                font-size: .9rem;
+                font-size: .8rem;
             }
         }
     }

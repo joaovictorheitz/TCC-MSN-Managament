@@ -35,7 +35,8 @@ router.get('/search', function (req, res) {
                 title: product.title,
                 thumbnail: product.thumbnail,
                 description: product.description,
-                price: product.price
+                price: product.price,
+                in_stock: product.stock
             })
             l++
         }
