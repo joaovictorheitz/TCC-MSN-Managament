@@ -83,11 +83,13 @@ html {
     .profile {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 8px;
 
         #profile-picture {
-            width: 64px;
-            height: 64px;
+            width: 56px;
+            height: 56px;
+            background-color: $bg2-color;
+            border-radius: 50%;
         }
 
         .profile-user {
@@ -100,14 +102,14 @@ html {
             }
 
             #profile-name {
-                font-weight: 600;
-                font-size: 18px;
+                font-weight: 500;
+                font-size: 17px;
             }
 
             #profile-profession {
                 font-weight: 400;
                 font-size: 14px;
-                opacity: .8;
+                opacity: .9;
             }
         }
     }

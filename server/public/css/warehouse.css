@@ -26,11 +26,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+  row-gap: 24px;
+  transition: all 0.5s cubic-bezier(0.34, 0.91, 0.34, 0.92);
 }
 #products.list {
   grid-template-columns: repeat(1, 1fr);
 }
 #products .product-card {
+  color: #222;
   max-width: unset;
   width: 48%;
   transition: all 0.5s cubic-bezier(0.34, 0.91, 0.34, 0.92);
@@ -70,4 +73,5 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  cursor: pointer;
 }/*# sourceMappingURL=warehouse.css.map */

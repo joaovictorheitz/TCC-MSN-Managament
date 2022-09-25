@@ -38,12 +38,15 @@ $bg2-color: #E5D9CD;
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
+    row-gap: 24px;
+    transition: all .5s cubic-bezier(.34, .91, .34, .92);
 
     &.list {
         grid-template-columns: repeat(1, 1fr);
     }
 
     .product-card {
+        color: $black;
         max-width: unset;
         width: 48%;
         transition: all .5s cubic-bezier(.34, .91, .34, .92);
@@ -85,4 +88,5 @@ $bg2-color: #E5D9CD;
     place-items: center;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     user-select: none;
+    cursor: pointer;
 }

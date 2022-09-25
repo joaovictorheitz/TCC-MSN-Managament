@@ -8,6 +8,13 @@ function toggleList() {
     document.querySelectorAll(".product-card").forEach(card => {
         $(card).css("width", `${(100 / columns) - 2}%`)
     })
+
+    if(columns == 1){
+        $("#products").css('row-gap', '12px')
+    } else {
+        $("#products").css('row-gap', '24px')
+    }
+
     $('#toggleList').data('columns', columns + 1)
     $('#columnsSelect').attr('src', `./assets/${columns + 1}columns.svg`)
 }
@@ -36,7 +43,7 @@ searchInput.addEventListener('input', (e) => {
                                 <span class="product-data">R$${product.price}</span>
                             </div>
                             <div class="product-data-tag">
-                                <span class="product-data-title">Em estoque</span>
+                                <span class="product-data-title">Estoque</span>
                                 <span class="product-data">${product.in_stock}</span>
                             </div>
                         </div>
@@ -44,7 +51,7 @@ searchInput.addEventListener('input', (e) => {
                     </div>
                 </div>
                 `
-
+                
                 products.append(productHtml)
             })
         })

@@ -66,11 +66,13 @@ html {
 #side-nav .profile {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 8px;
 }
 #side-nav .profile #profile-picture {
-  width: 64px;
-  height: 64px;
+  width: 56px;
+  height: 56px;
+  background-color: #e3d9cf;
+  border-radius: 50%;
 }
 #side-nav .profile .profile-user {
   display: flex;
@@ -83,13 +85,13 @@ html {
   width: fit-content;
 }
 #side-nav .profile .profile-user #profile-name {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 17px;
 }
 #side-nav .profile .profile-user #profile-profession {
   font-weight: 400;
   font-size: 14px;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 #side-nav .nav-btns {
   margin-top: 48px;

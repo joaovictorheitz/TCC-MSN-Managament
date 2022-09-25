@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/product.css">
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+        integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+    <title>Sabor do Nordeste</title>
+</head>
+
+<body>
+    <div class="container">
+        <nav id="side-nav">
+            <div class="profile">
+                <img id="profile-picture" src="../assets/avatar.png" alt="">
+                <div class="profile-user">
+                    <span id="profile-name">Hugo Almeida</span>
+                    <span id="profile-profession">Caixa</span>
+                </div>
+            </div>
+
+            <div class="nav-btns">
+                <div class="nav-links">
+                    <a class="nav-link" href="../home">
+                        <img src="../assets/home.svg" alt="" class="icon">
+                        <span>Home</span>
+                    </a>
+                    <a class="nav-link" href="../warehouse">
+                        <img src="../assets/boxes.svg" alt="" class="icon">
+                        <span>Estoque</span>
+                    </a>
+                </div>
+                <div class="nav-actions">
+                    <a class="nav-link" href="#">
+                        <img src="../assets/admin.svg" alt="" class="icon">
+                        <span>Administração</span>
+                    </a>
+
+                    <a class="nav-link" href="./login">
+                        <img src="../assets/exit.svg" alt="" class="icon">
+                        <span>Sair</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <section id="content">
+            <header>
+                <div id="go-back" onclick="history.back()">
+                    Voltar
+                </div>
+
+                <div id="logo">
+                    <img src="../assets/logo.png" alt="">
+                </div>
+            </header>
+
+            <div id="product">
+                <div class="product-info">
+                    <div class="product-thumbnail">
+                        <img class="product-thumbnail-image" src="<%= product.thumbnail %> " alt="">
+                        <img class="edit-thumbnail" src="../assets/edit.svg" alt="">
+                    </div>
+
+                    <div class="product-data">
+                        <h1 class="product-title">
+                            <%= product.title %>
+                        </h1>
+
+                        <div class="selling-details">
+                            <div class="selling-unit">
+                                <span> Unidade de venda </span>
+                                <select class="selling-detail-value" name="" id="">
+                                    <option value="kg">Kg</option>
+                                    <option value="un">Un</option>
+                                </select>
+                            </div>
+                            <div class="selling-price">
+                                <span> Vendido por </span>
+                                <span class="selling-detail-value"> R$<%= product.price %> </span>
+                            </div>
+                            <div class="selling-profit">
+                                <span>Porcentagem de lucro</span>
+                                <span class="selling-detail-value">110%</span>
+                            </div>
+                            <div class="in-stock">
+                                <span>Estoque</span>
+                                <span class="selling-detail-value">
+                                    <%= product.stock %>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
