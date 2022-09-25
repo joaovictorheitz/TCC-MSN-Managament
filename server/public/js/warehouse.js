@@ -1,8 +1,20 @@
 const searchInput = document.getElementById('search-item-input')
 
-searchInput.addEventListener('change', (e) => {
+function toggleList() {
+    columns = $('#toggleList').data('columns')
+
+    if (columns == 4) columns = 1;
+
+    document.querySelectorAll(".product-card").forEach(card => {
+        $(card).css("width", `${(100 / columns) - 2}%`)
+    })
+    $('#toggleList').data('columns', columns + 1)
+    $('#columnsSelect').attr('src', `./assets/${columns + 1}columns.svg`)
+}
+
+searchInput.addEventListener('input', (e) => {
     fetch(
-        location.origin + `/stock/search?q=${searchInput.value}&limit=20`)
+        location.origin + `/stock/search?q=${searchInput.value.trim()}&limit=21`)
         .then(r => r.json().then(js => {
             const products = $("#products")
             products.empty()
@@ -12,14 +24,16 @@ searchInput.addEventListener('change', (e) => {
 
                 let productHtml = `
                 <div class="product-card">
-                    <img class="product-image" src="${product.thumbnail}">
+                    <div class="product-image">
+                        <img src="${product.thumbnail}">
+                    </div>    
                     <div class="product-info">
                         <span class="product-name">${product.title}</span>
 
                         <div class="product-data">
                             <div class="product-data-tag">
                                 <span class="product-data-title">Preço</span>
-                                <span class="product-data">R$ ${product.price}</span>
+                                <span class="product-data">R$${product.price}</span>
                             </div>
                             <div class="product-data-tag">
                                 <span class="product-data-title">Em estoque</span>

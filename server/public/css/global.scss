@@ -156,11 +156,13 @@ html {
     gap: 24px;
     border-radius: 8px;
     align-items: center;
-    // max-width: 520px;
+    width: fit-content;
+    max-width: 520px;
+    box-sizing: border-box;
 
     .product-image {
-        height: 92px;
-        width: 92px;
+        height: 100%;
+        width: 8rem;
         object-fit: contain;
         border-radius: 8px;
     }
@@ -169,12 +171,11 @@ html {
         display: flex;
         flex-direction: column;
         gap: 8px;
-        width: 80%;
-        height: fit-content;
-        overflow: hidden;
+        width: max-content;
 
         .product-name {
-            font-weight: 600;
+            font-weight: 500;
+            font-size: 14px;
             white-space: nowrap;
             overflow: hidden;
             display: block;

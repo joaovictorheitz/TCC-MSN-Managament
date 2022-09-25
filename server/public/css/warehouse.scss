@@ -37,11 +37,52 @@ $bg2-color: #E5D9CD;
 #products {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    column-gap: 12px;
-    row-gap: 24px;
+    gap: 24px;
 
-    .product-card{
-        width: 27% !important;
+    &.list {
+        grid-template-columns: repeat(1, 1fr);
     }
+
+    .product-card {
+        max-width: unset;
+        width: 48%;
+        transition: all .5s cubic-bezier(.34, .91, .34, .92);
+
+        .product-image {
+            width: 5rem;
+            display: grid;
+            place-items: center;
+
+            img{
+                width: 100%;
+                border-radius: 3px;
+            }
+        }
+
+        .product-data {
+            justify-content: unset;
+            gap: 32px;
+        }
+
+        .product-info {
+            width: 100%;
+            overflow: hidden;
+            gap: 0;
+        }
+    }
+}
+
+#toggleList {
+    position: fixed;
+    bottom: calc(96px*.25);
+    right: calc(96px*.9);
+    padding: 12px;
+    background-color: $white;
+    border-radius: 8px;
+    width: 24px;
+    height: 24px;
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    user-select: none;
 }

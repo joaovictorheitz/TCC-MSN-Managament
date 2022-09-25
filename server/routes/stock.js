@@ -1,4 +1,4 @@
-const MAX_QUERY_LIMIT = 10
+const MAX_QUERY_LIMIT = 21
 
 var express = require('express');
 var router = express.Router();
@@ -16,7 +16,7 @@ router.get('/search', function (req, res) {
         return
     }
 
-    if (parseInt(limit) > 20) {
+    if (parseInt(limit) > MAX_QUERY_LIMIT) {
         res.send({
             error: `"limit" parameter exceded max (${MAX_QUERY_LIMIT})`
         })
