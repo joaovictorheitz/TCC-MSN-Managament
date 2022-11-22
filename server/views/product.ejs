@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/product.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+      integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
+      crossorigin="anonymous"
+    ></script>
+    <title>Sabor do Nordeste</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav id="side-nav">
+        <div class="profile">
+          <img id="profile-picture" src="../assets/avatar.png" alt="" />
+          <div class="profile-user">
+            <span id="profile-name">Hugo Almeida</span>
+            <span id="profile-profession">Caixa</span>
+          </div>
+        </div>
+
+        <div class="nav-btns">
+          <div class="nav-links">
+            <a class="nav-link" href="../home">
+              <img src="../assets/home.svg" alt="" class="icon" />
+              <span>Home</span>
+            </a>
+            <a class="nav-link" href="../warehouse">
+              <img src="../assets/boxes.svg" alt="" class="icon" />
+              <span>Estoque</span>
+            </a>
+          </div>
+          <div class="nav-actions">
+            <a class="nav-link" href="#">
+              <img src="../assets/admin.svg" alt="" class="icon" />
+              <span>Administração</span>
+            </a>
+
+            <a class="nav-link" href="./login">
+              <img src="../assets/exit.svg" alt="" class="icon" />
+              <span>Sair</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <section id="content">
+        <header>
+          <div id="go-back" onclick="history.back()">Voltar</div>
+
+          <div id="logo">
+            <img src="../assets/logo.png" alt="" />
+          </div>
+        </header>
+
+        <div id="product">
+          <div class="product-info">
+            <div class="product-thumbnail">
+              <img
+                class="product-thumbnail-image"
+                src="<%= product.thumbnail %> "
+                alt=""
+              />
+              <a href="/product/<%-product.id%>/edit-thumbnail">
+                <img class="edit-thumbnail" src="../assets/edit.svg" alt="" />
+              </a>
+            </div>
+
+            <div class="product-data">
+              <h1 class="product-title"><%= product.title %></h1>
+
+              <div id="selling-details">
+                <div class="selling-unit selling-detail">
+                  <span class="selling-detail-title"> Unidade </span>
+                  <select class="selling-detail-value" id="">
+                    <option value="un">Un</option>
+                    <option value="kg" <%= product.format == 'kg' ? "selected" : "" %>>Kg</option>
+                  </select>
+                </div>
+                <div class="selling-price selling-detail">
+                  <span class="selling-detail-title"> Valor </span>
+                  <input class="selling-detail-value" value="R$<%=
+                  parseFloat(product.price).toFixed(2).replace(".", ',') %>" />
+                </div>
+                <div class="selling-profit selling-detail">
+                  <span class="selling-detail-title"
+                    >Lucro em <span class="semi-bold">%</span></span
+                  >
+                  <input class="selling-detail-value"
+                  value=<%-parseFloat(110).toFixed(2).replace(".", ',') %> />
+                </div>
+                <div class="in-stock selling-detail">
+                  <span class="selling-detail-title">Estoque</span>
+                  <span class="selling-detail-value"><%= product.stock %></span>
+                </div>
+              </div>
+
+              <a id="add-new" href="/product/<%-product.id%>/add">
+                <img class="add-icon" src="../assets/cart.svg" alt="" />
+                <div class="add-info">
+                  <div class="add-title">Nova Compra</div>
+                  <div class="add-desc">
+                    Adicione mais
+                    <span class="medium"><%= product.title %></span
+                    ><span class="small-text">(s)</span> no estoque.
+                  </div>
+                </div>
+                <img
+                  class="add-icon next-arrow"
+                  src="../assets/arrow-next.svg"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+
+          <div id="stock">
+            <% product.purchases.forEach(buy => { %>
+            <div class="buy">
+              <img src="../assets/bag.svg" class="buy-icon-shop" />
+              <div class="buy-info">
+                <div class="buy-title">
+                  <div class="buy-title-date"><%-buy.purchase_date%></div>
+                  <div class="buy-title-id small-text"><%-buy.purchase_id%></div>
+                </div>
+
+                <div class="buy-data">
+                  <div class="buy-data-value">
+                    Validade
+                    <span class="medium">
+                      <%=buy.validity.replaceAll("-", "/")%>
+                    </span>
+                  </div>
+                  <div class="buy-data-value">
+                    Quantidade
+                    <span class="medium">
+                      <%=buy.quantity.toFixed(2).replace(".", ",")%>
+                    </span>
+                  </div>
+                  <div class="buy-data-value">
+                    Valor
+                    <span class="medium">
+                      R$<%=buy.price.toFixed(2).replace(".", ",")%>
+                    </span>
+                  </div>
+                  <div class="buy-data-value">
+                    Método Pgto.
+                    <span class="medium"> <%=buy.method%> </span>
+                  </div>
+                  <div class="buy-data-value">
+                    Parcelas
+                    <span class="medium"> <%=buy.parcels%>x </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

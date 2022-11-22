@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/global.css" />
+  <link rel="stylesheet" href="../css/finances.css" />
+  <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
+    integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+  <title>Sabor do Nordeste</title>
+</head>
+
+<body>
+  <div class="container">
+    <nav id="side-nav">
+      <div class="profile">
+        <img id="profile-picture" src="../assets/avatar.png" alt="" />
+        <div class="profile-user">
+          <span id="profile-name">Hugo Almeida</span>
+          <span id="profile-profession">Caixa</span>
+        </div>
+      </div>
+
+      <div class="nav-btns">
+        <div class="nav-links">
+          <a class="nav-link" href="../home">
+            <img src="../assets/home.svg" alt="" class="icon" />
+            <span>Home</span>
+          </a>
+        </div>
+        <div class="nav-actions">
+          <a class="nav-link" href="#">
+            <img src="../assets/admin.svg" alt="" class="icon" />
+            <span>Administração</span>
+          </a>
+
+          <a class="nav-link" href="./login">
+            <img src="../assets/exit.svg" alt="" class="icon" />
+            <span>Sair</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <section id="content">
+      <header>
+        <div id="go-back" onclick="history.back()">Voltar</div>
+
+        <div id="logo">
+          <img src="../assets/logo.png" alt="" />
+        </div>
+      </header>
+
+      <div id="data-content">
+
+        <div id="stats">
+          <div class="info-card">
+            <div class="card-title">Novos Clientes</div>
+            <div class="card-data-flex">
+              <div class="card-data">
+                <div class="card-data-difference">
+                  <%if(data.newClients[0].new_clients>
+                    data.newClients[1].new_clients) {%>
+                  <img src="../assets/arrow-up.svg" alt="" />
+                  <%} else {%>
+                  <img src="../assets/arrow-down.svg" alt="" />
+                  <% } %>
+
+                  <div class="card-data-difference-value">
+                    <span class="semi-bold">
+                      <%= Math.abs(data.newClients[0].new_clients -
+                        data.newClients[1].new_clients).toString() %>
+                    </span>
+                    <% if (data.newClients[0].new_clients>
+                      data.newClients[1].new_clients) { %> a mais que ontem <% }
+                      else {%> a menos que ontem <% } %>
+                  </div>
+                </div>
+                <div class="card-data-actual">
+                  <%= data.newClients[0].new_clients %>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="card-title">Vendas</div>
+            <div class="card-data-flex">
+              <div class="card-data">
+                <div class="card-data-difference">
+                  <%if(data.sells[0].sells> data.sells[1].sells) {%>
+                  <img src="../assets/arrow-up.svg" alt="" />
+                  <%} else {%>
+                  <img src="../assets/arrow-down.svg" alt="" />
+                  <% } %>
+
+                  <div class="card-data-difference-value">
+                    <span class="semi-bold">
+                      <%= Math.abs(data.sells[0].sells -
+                        data.sells[1].sells).toString() %>
+                    </span>
+                    <% if (data.sells[0].sells> data.sells[1].sells) { %> a mais
+                    que ontem <% } else {%> a menos que ontem <% } %>
+                  </div>
+                </div>
+                <div class="card-data-actual">
+                  <%= data.sells[0].sells %>
+                  <span> vendas</span>
+                </div>
+              </div>
+
+              <div class="card-data">
+                <div class="card-data-difference">
+                  <%if(data.sells[0].sells_return> data.sells[1].sells_return)
+                    {%>
+                  <img src="../assets/arrow-up.svg" alt="" />
+                  <%} else {%>
+                  <img src="../assets/arrow-down.svg" alt="" />
+                  <% } %>
+
+                  <div class="card-data-difference-value">
+                    <span class="semi-bold">
+                      <%= Math.abs(data.sells[0].sells_return -
+                        data.sells[1].sells_return).toFixed(2) %>
+                    </span>
+                    R$ <% if (data.sells[0].sells_return>
+                      data.sells[1].sells_return) { %> a mais que ontem <% } else
+                      {%> a menos que ontem <% } %>
+                  </div>
+                </div>
+                <div class="card-data-actual">
+                  R$<%= data.sells[0].sells_return.toFixed(2) %>
+                  <span>em retorno</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="card-title">Itens mais vendidos</div>
+            <div class="card-data-flex">
+              <div class="card-data">
+                <div class="card-data-difference">
+                  <img src="../assets/arrow-up.svg" alt="" />
+                  <img src="../assets/arrow-down.svg" alt="" />
+
+                  <div class="card-data-difference-value">
+                    <span class="semi-bold"> </span>
+                  </div>
+                </div>
+                <div class="card-data-actual"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="earnings">
+          <div class="earnings">
+            <div class="earnings-left">
+              <img src="../assets/money.svg" alt="" class="earnings-icon">
+
+              <div class="earnings-data">
+                <div class="earnings-data-type">Dinheiro</div>
+                <div class="earnings-data-value">R$ 1.580,72</div>
+              </div>
+            </div>
+
+            <div class="earnings-right">
+              <div class="earnings-difference">
+                <span class="earnings-difference-value">
+                  32%
+                  <img src="../assets/arrow-up.svg" alt="">
+                </span>
+                <a class="earnings-details" href="#">
+                  Mais detalhes
+                  <img src="../assets/arrow-right.svg" alt="">
+                </a>
+              </div>
+
+              <div class="earnings-period">1 de abr. - 1 de mai.</div>
+            </div>
+          </div>
+          <div class="earnings">
+            <div class="earnings-left">
+              <img src="../assets/money.svg" alt="" class="earnings-icon">
+
+              <div class="earnings-data">
+                <div class="earnings-data-type">Dinheiro</div>
+                <div class="earnings-data-value">R$ 1.580,72</div>
+              </div>
+            </div>
+
+            <div class="earnings-right">
+              <div class="earnings-difference">
+                <span class="earnings-difference-value">
+                  32%
+                  <img src="../assets/arrow-up.svg" alt="">
+                </span>
+                <a class="earnings-details" href="#">
+                  Mais detalhes
+                  <img src="../assets/arrow-right.svg" alt="">
+                </a>
+              </div>
+
+              <div class="earnings-period">1 de abr. - 1 de mai.</div>
+            </div>
+          </div>
+          <div class="earnings">
+            <div class="earnings-left">
+              <img src="../assets/money.svg" alt="" class="earnings-icon">
+
+              <div class="earnings-data">
+                <div class="earnings-data-type">Dinheiro</div>
+                <div class="earnings-data-value">R$ 1.580,72</div>
+              </div>
+            </div>
+
+            <div class="earnings-right">
+              <div class="earnings-difference">
+                <span class="earnings-difference-value">
+                  32%
+                  <img src="../assets/arrow-up.svg" alt="">
+                </span>
+                <a class="earnings-details" href="#">
+                  Mais detalhes
+                  <img src="../assets/arrow-right.svg" alt="">
+                </a>
+              </div>
+
+              <div class="earnings-period">1 de abr. - 1 de mai.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+  </div>
+</body>
+
+</html>

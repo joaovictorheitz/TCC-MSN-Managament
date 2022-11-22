@@ -1,0 +1,123 @@
+* {
+  font-family: "Poppins";
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 48px;
+  background-color: #EDE5DD;
+  border-radius: 12px;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+}
+
+#inp-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  width: 70%;
+  margin-top: 12px;
+}
+
+.submit {
+  margin-top: 48px;
+  display: flex;
+}
+
+input {
+  box-sizing: border-box;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 12px;
+  font-size: 16px;
+  background: #EDE5DD;
+  border: 2px solid #848484;
+  border-radius: 8px;
+  width: 100%;
+}
+input:valid + .placeholder {
+  top: -69px;
+  opacity: 1;
+  font-size: 0.85rem;
+}
+input:invalid + .placeholder {
+  top: -69px;
+  opacity: 1;
+  color: #D05555;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+input:focus + .placeholder {
+  top: -69px;
+  opacity: 1;
+  font-size: 1rem;
+  padding: 6px;
+}
+
+.placeholder {
+  position: relative;
+  top: -38px;
+  left: 10px;
+  opacity: 0.7;
+  pointer-events: none;
+  background-color: #EDE5DD;
+  padding: 4px;
+  transition: 0.1s ease-in-out all;
+}
+
+#submit_button {
+  height: 20px;
+  padding: 12px;
+  font-size: 16px;
+  background: #EDE5DD;
+  border: 2px solid #848484;
+  border-radius: 8px;
+  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 8px 48px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.form-btns {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -12px;
+}
+.form-btns #fp {
+  text-align: right;
+}
+.form-btns span {
+  font-size: 0.85rem;
+  opacity: 0.9;
+  cursor: pointer;
+  transition: 0.15s all ease-in-out;
+}
+.form-btns span:hover {
+  opacity: 1;
+}/*# sourceMappingURL=login.css.map */
