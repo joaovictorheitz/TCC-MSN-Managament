@@ -1,24 +1,41 @@
 #data-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 32px;
 }
 
 #stats {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   overflow-x: auto;
   gap: 32px;
 }
+
 #stats .info-card {
   background-color: #ede5dd;
   padding: 16px 24px;
   border-radius: 8px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   row-gap: 12px;
 }
+
 #stats .info-card .card-title {
   font-size: 14px;
   font-weight: 600;
@@ -26,74 +43,126 @@
   width: -moz-max-content;
   width: max-content;
 }
+
 #stats .info-card .card-data-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 24px;
 }
+
 #stats .info-card .card-data-flex .card-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column-reverse;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
   row-gap: 4px;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
+
 #stats .info-card .card-data-flex .card-data .card-data-difference {
   font-size: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  -moz-column-gap: 8px;
-       column-gap: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 8px;
+          column-gap: 8px;
 }
+
 #stats .info-card .card-data-flex .card-data .card-data-difference .card-data-difference-value {
   opacity: 0.7;
 }
+
 #stats .info-card .card-data-flex .card-data .card-data-actual {
   font-size: 20px;
   font-weight: 600;
 }
+
 #stats .info-card .card-data-flex .card-data .card-data-actual span {
   font-size: 16px;
   font-weight: 500;
 }
 
 #earnings {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   overflow-x: auto;
   gap: 32px;
 }
+
 #earnings .earnings {
   width: 512px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   padding: 16px;
   border-radius: 8px;
   background-color: #ede5dd;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
-  justify-content: space-between;
+  -webkit-box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 #earnings .earnings .earnings-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 32px;
 }
+
 #earnings .earnings .earnings-left .earnings-data .earnings-data-type {
   font-weight: 500;
 }
+
 #earnings .earnings .earnings-left .earnings-data .earnings-data-value {
   font-weight: 600;
 }
+
 #earnings .earnings .earnings-right {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
+
 #earnings .earnings .earnings-right .earnings-difference {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 4px;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
+
 #earnings .earnings .earnings-right .earnings-difference .earnings-difference-value {
   padding: 8px;
   background-color: #fafafa;
@@ -102,17 +171,24 @@
   color: #418C25;
   font-weight: 500;
 }
+
 #earnings .earnings .earnings-right .earnings-difference .earnings-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 12px;
   font-size: 13px;
-  opacity: 0.9;
-  transition: all 0.1s ease-in-out;
+  opacity: .9;
+  -webkit-transition: all .1s ease-in-out;
+  transition: all .1s ease-in-out;
 }
+
 #earnings .earnings .earnings-right .earnings-difference .earnings-details:hover {
   opacity: 1;
 }
+
 #earnings .earnings .earnings-right .earnings-period {
   font-size: 13px;
-  opacity: 0.9;
-}/*# sourceMappingURL=finances.css.map */
+  opacity: .9;
+}
+/*# sourceMappingURL=finances.css.map */

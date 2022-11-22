@@ -38,15 +38,41 @@ const products = {
     },
     {
       id: 2,
-      title: "aomate Cereja",
+      title: "Alface Crespa",
       description: "",
-      price: 19.47,
+      price: 4.99,
       profit: 110,
-      stock: 94,
+      stock: 9.34,
       format: "kg",
-      category: "fruits",
+      category: "vegetables",
       thumbnail:
-        "https://us-southeast-1.linodeobjects.com/storage/fluminense/media/uploads/produto/tomate_cereja_kg_05d99f87-ab61-425a-9d88-41dc750c5adb.png",
+        "https://images.squarespace-cdn.com/content/v1/5b8edfa12714e508f756f481/1543944726778-3R28J0BST06GRZCOF7UR/alface-crespa-verde-hidropo%CC%82nica.png?format=256w",
+      purchases: [
+        {
+          purchase_id: pad(1, 12),
+          purchase_date:
+            "Compra <span class='medium'>" +
+            new Date().toISOString().split("T")[0].replaceAll("-", "/") +
+            "</span>",
+          validity: "06-08-2022",
+          quantity: 4.27,
+          price: 20.9,
+          method: "Cartão de Crédito",
+          parcels: 1,
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: "Couve",
+      description: "",
+      price: 2.99,
+      profit: 110,
+      stock: 2.34,
+      format: "kg",
+      category: "vegetables",
+      thumbnail:
+        "https://static1.conquistesuavida.com.br/ingredients/9/54/52/09/@/24752--ingredient_detail_ingredient-2.png",
       purchases: [
         {
           purchase_id: pad(1, 12),

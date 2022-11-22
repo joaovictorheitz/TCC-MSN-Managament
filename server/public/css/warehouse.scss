@@ -53,10 +53,11 @@ $bg2-color: #e5d9cd;
       width: 5rem;
       display: grid;
       place-items: center;
+      border-radius: 8px;
 
       img {
         width: 100%;
-        border-radius: 3px;
+        border-radius: 8px;
       }
     }
 
@@ -100,13 +101,21 @@ $bg2-color: #e5d9cd;
   }
 
   #filter {
+    transition: all .5s ease-in-out;
+
+    &.active{
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+
     #filters {
       background-color: $white;
       box-shadow: $shadow;
       display: flex;
       position: absolute;
       right: 48px;
-
+      border-radius: 8px;
+      
       div {
         width: 24px;
         height: 24px;
@@ -118,7 +127,7 @@ $bg2-color: #e5d9cd;
         border-radius: 8px;
         display: grid;
         place-items: center;
-        transition: 0.2s all ease-in-out;
+        transition: 0.2s background-color ease-in-out;
 
         &[data-selected="true"] {
           background-color: $bg2-color;
@@ -126,6 +135,11 @@ $bg2-color: #e5d9cd;
 
         &:hover {
           background-color: $bg-color;
+        }
+
+        &:last-of-type{
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
         }
       }
     }

@@ -18,9 +18,9 @@ $bg2-color: #e3d9cf;
       display: grid;
       place-items: center;
       position: relative;
-      box-shadow: $shadow;
-
+      
       .product-thumbnail-image {
+        box-shadow: $shadow;
         width: 16rem;
         height: 14rem;
         border-radius: 16px;

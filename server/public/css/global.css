@@ -4,7 +4,7 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -22,126 +22,193 @@ html {
 .container {
   height: 100%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 #content {
   padding: 24px 96px;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   overflow: hidden;
   overflow-y: scroll;
 }
+
 #content header {
   width: 100%;
   left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-bottom: 32px;
 }
+
 #content header #logo img {
   height: 80px;
 }
+
 #content header #datetime #time {
   font-size: 1.4rem;
   font-weight: 600;
 }
+
 #content header #datetime #date {
   margin-left: 8px;
   font-size: 1rem;
-  opacity: 0.9;
+  opacity: .9;
 }
 
 #side-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   background-color: #ede5dd;
   padding: 48px 24px;
   height: 100%;
   width: 24vw;
 }
+
 #side-nav,
 #side-nav * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 #side-nav .profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 8px;
 }
+
 #side-nav .profile #profile-picture {
   width: 56px;
   height: 56px;
   background-color: #e3d9cf;
   border-radius: 50%;
 }
+
 #side-nav .profile .profile-user {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 8px;
 }
+
 #side-nav .profile .profile-user span {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
+
 #side-nav .profile .profile-user #profile-name {
   font-weight: 500;
   font-size: 17px;
 }
+
 #side-nav .profile .profile-user #profile-profession {
   font-weight: 400;
   font-size: 14px;
-  opacity: 0.9;
+  opacity: .9;
 }
+
 #side-nav .nav-btns {
   margin-top: 48px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   height: 100%;
 }
+
 #side-nav .nav-btns .nav-links,
 #side-nav .nav-btns .nav-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 24px;
 }
+
 #side-nav .nav-btns .nav-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 8px;
   width: 100%;
   padding: 12px 16px;
-  font-size: 0.9rem;
+  font-size: .9rem;
   font-weight: 600;
   color: #222;
   border-radius: 8px;
   background-color: #e3d9cf;
 }
+
 #side-nav .nav-btns .nav-link .icon {
   width: 20px;
   height: 20px;
+  display: -ms-grid;
   display: grid;
   place-items: center;
 }
 
 .product-card {
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+  -webkit-box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   background-color: #ede5dd;
   padding: 12px 20px;
   gap: 24px;
   border-radius: 8px;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   max-width: 520px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 .product-card .product-image {
   height: 100%;
   width: 8rem;
@@ -149,14 +216,21 @@ html {
      object-fit: contain;
   border-radius: 8px;
 }
+
 .product-card .product-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 8px;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
 }
+
 .product-card .product-info .product-name {
   font-weight: 500;
   font-size: 14px;
@@ -165,18 +239,25 @@ html {
   display: block;
   text-overflow: ellipsis;
 }
+
 .product-card .product-info .product-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   gap: 24px;
 }
+
 .product-card .product-info .product-data .product-data-title {
   font-weight: 400;
-  font-size: 0.75rem;
+  font-size: .75rem;
 }
+
 .product-card .product-info .product-data .product-data {
   font-weight: 500;
-  font-size: 0.8rem;
+  font-size: .8rem;
 }
 
 ::-webkit-scrollbar {
@@ -226,6 +307,7 @@ html {
   font-weight: 600;
   height: 50%;
 }
+
 #go-back::after {
   content: "";
   display: inline-block;
@@ -276,4 +358,5 @@ html {
 
 .next-arrow {
   height: 16px !important;
-}/*# sourceMappingURL=global.css.map */
+}
+/*# sourceMappingURL=global.css.map */
