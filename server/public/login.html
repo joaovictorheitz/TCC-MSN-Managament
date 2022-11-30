@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   <script defer src="js/login.js"></script>
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/login.css">
@@ -17,17 +17,23 @@
     <img src="assets/logo.png" id="logo">
     <form action="" id="inp-form">
       <div class="input">
-        <input type="username" id="user" pattern=".{6,}" required title="Mínimo de 6 caracteres" value="hugoalmeida2412@gmail.com">
+        <input type="email" id="email" pattern=".{4,}" required title="Mínimo de 4 caracteres" value="hugoalmeida2412@gmail.com">
         <span class="placeholder">Usuário</span>
+        <div class="input-error" id="user-err">
+          Usuário inexistente.
+        </div>
       </div>
 
       <div class="input">
-        <input type="password" id="password" pattern=".{8,}" min=8 required title="Mínimo de 8 caracteres" value="12345678">
+        <input type="password" id="password" pattern=".{8,}" min=8 required title="Mínimo de 8 caracteres" value="hugo2412">
         <span class="placeholder">Senha</span>
+        <span id="toggle-pass" onclick="togglePass()"><img src="/assets/reveal.svg" alt=""></span>
+        <div class="input-error" id="pass-err">
+          Senha incorreta.
+        </div>
       </div>
 
       <div class="form-btns">
-        <span id="toggle-pass" onclick="togglePass()">Exibir senha</span>
         <span id="fp">Esqueci minha senha</span>
       </div>
 

@@ -1,86 +1,64 @@
 #search-item {
   width: 60%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
-
 #search-item .search-bar {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   background-color: #ede5dd;
   padding: 12px 16px;
   border-radius: 8px;
 }
-
 #search-item .search-bar input {
   width: 100%;
   outline: none;
   border: none;
   background-color: transparent;
 }
-
 #search-item .search-bar img {
   opacity: 0.5;
 }
 
 #products {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 24px;
   row-gap: 24px;
-  -webkit-transition: all 0.5s cubic-bezier(0.34, 0.91, 0.34, 0.92);
   transition: all 0.5s cubic-bezier(0.34, 0.91, 0.34, 0.92);
 }
-
 #products.list {
-  -ms-grid-columns: (1fr)[1];
-      grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(1, 1fr);
 }
-
 #products .product-card {
   color: #222;
   max-width: unset;
   width: 48%;
-  -webkit-transition: all 0.5s cubic-bezier(0.34, 0.91, 0.34, 0.92);
   transition: all 0.5s cubic-bezier(0.34, 0.91, 0.34, 0.92);
 }
-
+#products .product-card#add-new .product-image {
+  width: 32px;
+}
 #products .product-card .product-image {
   width: 5rem;
-  display: -ms-grid;
   display: grid;
   place-items: center;
   border-radius: 8px;
 }
-
 #products .product-card .product-image img {
   width: 100%;
   border-radius: 8px;
 }
-
 #products .product-card .product-data {
-  -webkit-box-pack: unset;
-      -ms-flex-pack: unset;
-          justify-content: unset;
+  justify-content: flex-start;
+  display: flex;
+  flex-wrap: wrap;
   gap: 32px;
+  overflow-y: hidden;
+  height: 3rem;
 }
-
 #products .product-card .product-info {
   width: 100%;
   overflow: hidden;
@@ -89,89 +67,65 @@
 
 #options {
   position: fixed;
-  bottom: calc(96px * 0.25);
-  right: calc(96px * 0.9);
-  display: -webkit-box;
-  display: -ms-flexbox;
+  bottom: 24px;
+  right: 86.4px;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   gap: 16px;
 }
-
 #options .option {
   padding: 12px;
   background-color: #fafafa;
   border-radius: 8px;
   width: 24px;
   height: 24px;
-  display: -ms-grid;
   display: grid;
   place-items: center;
-  -webkit-box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
 }
-
 #options .option img {
   width: 18px;
   height: 18px;
 }
-
 #options #filter {
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
-
 #options #filter.active {
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 }
-
 #options #filter #filters {
   background-color: #fafafa;
-  -webkit-box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
-          box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
-  display: -webkit-box;
-  display: -ms-flexbox;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
   display: flex;
   position: absolute;
   right: 48px;
   border-radius: 8px;
 }
-
 #options #filter #filters div {
   width: 24px;
   height: 24px;
   padding: 12px;
 }
-
 #options #filter #filters .filter-opt {
   background-color: #fafafa;
   border-radius: 8px;
-  display: -ms-grid;
   display: grid;
   place-items: center;
-  -webkit-transition: 0.2s background-color ease-in-out;
   transition: 0.2s background-color ease-in-out;
 }
-
-#options #filter #filters .filter-opt[data-selected="true"] {
+#options #filter #filters .filter-opt[data-selected=true] {
   background-color: #e5d9cd;
 }
-
 #options #filter #filters .filter-opt:hover {
   background-color: #ede5dd;
 }
-
 #options #filter #filters .filter-opt:last-of-type {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-}
-/*# sourceMappingURL=warehouse.css.map */
+}/*# sourceMappingURL=warehouse.css.map */

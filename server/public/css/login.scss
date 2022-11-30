@@ -1,136 +1,177 @@
-
-$shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
-$red: #D05555;
+$shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+$black: #222;
+$white: #fafafa;
+$primary-color: orange;
+$bg-color: #ede5dd;
+$bg2-color: #e3d9cf;
+$red: #d05555;
 
 * {
-    font-family: 'Poppins';
-    padding: 0;
-    margin: 0;
+  font-family: "Poppins";
+  padding: 0;
+  margin: 0;
 }
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 #container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-    padding: 48px;
-    background-color: #EDE5DD;
-    border-radius: 12px;
-    width: 35%;
+  padding: 48px;
+  background-color: #ede5dd;
+  border-radius: 12px;
+  width: 35%;
 
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
 
-    box-shadow: $shadow;
+  box-shadow: $shadow;
 }
 
 #inp-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 32px;
 }
 
 .input {
-    width: 70%;
-    margin-top: 12px;
+  width: 70%;
+  position: relative;
 }
 
 .submit {
-    margin-top: 48px;
-    display: flex;
+  margin-top: 24px;
+  display: flex;
 }
 
 input {
-    box-sizing: border-box;
-    height: fit-content;
-    padding: 12px;
+  box-sizing: border-box;
+  height: fit-content;
+  padding: 12px;
 
-    font-size: 16px;
-    background: #EDE5DD;
-    border: 2px solid #848484;
-    border-radius: 8px;
-    width: 100%;
+  font-size: 16px;
+  background: #ede5dd;
+  border: 2px solid #848484;
+  border-radius: 8px;
+  width: 100%;
+  transition: 0.1s ease-in-out all;
 
-    &:valid+.placeholder {
-        top: -69px;
-        opacity: 1;
-        font-size: .85rem;
-    }
+  &:valid + .placeholder {
+    position: absolute;
+    top: -1.1rem;
+    opacity: 1;
+    font-size: 0.85rem;
+  }
 
-    &:invalid+.placeholder {
-        top: -69px;
-        opacity: 1;
-        color: $red;
-        font-size: .85rem;
-        font-weight: 500;
-    }
+  &:invalid + .placeholder {
+    top: -1.4rem;
+    opacity: 1;
+    color: $red;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
 
+  &:focus + .placeholder {
+    top: -1.4rem;
+    opacity: 1;
+    font-size: 1rem;
+    padding: 6px;
+    font-weight: 500;
+  }
 
-    &:focus+.placeholder {
-        top: -69px;
-        opacity: 1;
-        font-size: 1rem;
-        padding: 6px;
-    }
-
+  &:focus {
+    border: 3px solid $black;
+  }
 }
 
 .placeholder {
-    position: relative;
-    top: -38px;
-    left: 10px;
-    opacity: .7;
-    pointer-events: none;
-    background-color: #EDE5DD;
-    padding: 4px;
-    transition: .1s ease-in-out all;
+  position: relative;
+  top: -38px;
+  left: 10px;
+  opacity: 0.7;
+  pointer-events: none;
+  background-color: #ede5dd;
+  padding: 4px;
+  transition: 0.1s ease-in-out all;
 }
 
 #submit_button {
-    height: 20px;
-    padding: 12px;
+  height: 20px;
+  padding: 12px;
 
-    font-size: 16px;
-    background: #EDE5DD;
-    border: 2px solid #848484;
-    border-radius: 8px;
-    width: 100%;
+  font-size: 16px;
+  background: #ede5dd;
+  border: 2px solid #848484;
+  border-radius: 8px;
+  width: 100%;
 
-    width: fit-content;
-    height: fit-content;
-    padding: 8px 48px;
-    cursor: pointer;
-    margin: 0 auto;
+  width: fit-content;
+  height: fit-content;
+  padding: 8px 48px;
+  cursor: pointer;
+  margin: 0 auto;
 }
 
+#logo {
+  height: 15vh;
+}
 
 .form-btns {
-    width: 70%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: -12px;
+  width: 70%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -12px;
 
-    #fp {
-        text-align: right;
+  #fp {
+    text-align: right;
+  }
+
+  span {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    cursor: pointer;
+    transition: 0.15s all ease-in-out;
+
+    &:hover {
+      opacity: 1;
     }
+  }
+}
 
-    span {
-        font-size: .85rem;
-        opacity: .9;
-        cursor: pointer;
-        transition: .15s all ease-in-out;
+.input-error {
+  color: $red;
+  margin-top: 4px;
+  font-size: 13px;
+  display: none;
+}
 
-        &:hover {
-            opacity: 1;
-        }
-    }
+#toggle-pass {
+  img {
+    width: 20px;
+  }
+
+  position: absolute;
+  right: 12px;
+  opacity: 0.8;
+  top: 16px;
+  transition: 0.2s ease-in-out all;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &::selection {
+    background-color: transparent;
+  }
 }

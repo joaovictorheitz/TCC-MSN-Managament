@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
   </script>
     <script defer src="js/warehouse.js"></script>
+    <script defer src="js/sidebar.js"></script>
     <title>Sabor do Nordeste</title>
   </head>
 
@@ -16,7 +17,7 @@
     <div class="container">
       <nav id="side-nav">
         <div class="profile">
-          <img id="profile-picture" src="../assets/avatar.png" alt="" />
+          <img id="profile-picture" src="/assets/avatar.png" alt="" />
           <div class="profile-user">
             <span id="profile-name">Hugo Almeida</span>
             <span id="profile-profession">Caixa</span>
@@ -25,9 +26,9 @@
 
         <div class="nav-btns">
           <div class="nav-links">
-            <a class="nav-link" href="./home">
-              <img src="../assets/home.svg" alt="" class="icon" />
-              <span>Home</span>
+            <a class="nav-link" href="/home">
+              <img src="/assets/home.svg" alt="" class="icon" />
+              <span>Tela Inicial</span>
             </a>
           </div>
           <div class="nav-actions">
@@ -36,8 +37,8 @@
               <span>Administração</span>
             </a>
 
-            <a class="nav-link" href="./login">
-              <img src="../assets/exit.svg" alt="" class="icon" />
+            <a class="nav-link" href="/login">
+              <img src="/assets/exit.svg" alt="" class="icon" />
               <span>Sair</span>
             </a>
           </div>
@@ -54,37 +55,26 @@
                 placeholder="Pesquisar"
                 id="search-item-input"
               />
-              <img src="../assets/search.svg" alt="" srcset="" />
+              <img src="/assets/search.svg" alt="" srcset="" />
             </div>
           </div>
           <div id="logo">
-            <img src="../assets/logo.png" alt="" />
+            <img src="/assets/logo.png" alt="" />
           </div>
         </header>
 
         <div id="products">
-          <a class="product-card" id="oi" href="/product/1">
-            <img class="product-image" src="../assets/tomate_cereja.png" />
+          <a class="product-card" id="add-new" href="/stock/add">
+            <img class="product-image" src="/assets/add.svg" />
             <div class="product-info">
-              <span class="product-name">Tomate Cereja</span>
-
-              <div class="product-data">
-                <div class="product-data-tag">
-                  <span class="product-data-title">Preço</span>
-                  <span class="product-data">R$19,47/kg</span>
-                </div>
-                <div class="product-data-tag">
-                  <span class="product-data-title">Estoque</span>
-                  <span class="product-data">6kg</span>
-                </div>
-              </div>
+              <span class="product-name">Adicionar Novo Produto</span>
             </div>
           </a>
         </div>
 
         <div id="options">
-          <div id="filter" class="option" data-toggled="false">
-            <img src="./assets/filter.svg" onclick="toggleFilters()" class="opt-icon" alt="" />
+        <div id="filter" class="option" data-toggled="false">
+            <img src="/assets/filter.svg" onclick="toggleFilters()" class="opt-icon" alt="" />
     
             <div id="filters">
               <div class="filter-opt" data-selected="true" onclick="filter(this)" data-value="title"><img src="./assets/alphabet.svg" alt=""></div>
@@ -94,8 +84,8 @@
               <div class="filter-opt" data-selected="true" onclick="filter(this)" data-value="asc-desc"><img src="./assets/sort.svg" alt=""></div>
             </div>
           </div>
-          <div id="toggleList" class="option" data-columns="3">
-            <img id="columnsSelect" onclick="toggleList()" src="./assets/3columns.svg" class="opt-icon" alt="" />
+          <div id="toggleList" onclick="toggleList()" class="option" data-columns="3">
+            <img id="columnsSelect" src="/assets/3columns.svg" class="opt-icon" alt="" />
           </div>
         </div>
       </section>

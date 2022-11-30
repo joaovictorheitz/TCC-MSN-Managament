@@ -1,0 +1,33 @@
+{
+  "newClients": [
+    { "date": "2022-10-4", "new_clients": 8 },
+    { "date": "2022-10-3", "new_clients": 44 }
+  ],
+  "sells": [
+    { "date": "2022-10-4", "sells": 224, "sells_return": 284.7 },
+    { "date": "2022-10-3", "sells": 231, "sells_return": 571.83 }
+  ],
+  "mostSold": [
+    {
+      "date": "2022-10-4",
+      "highlights": [
+        { "id": 1 },
+        { "id": 2 },
+        { "id": 4 },
+        { "id": 5 },
+        { "id": 6 },
+        { "id": 7 }
+      ]
+    },
+    {
+      "date": "2022-10-3",
+      "highlights": [
+        { "id": 1 },
+        { "id": 2 },
+        { "id": 3 },
+        { "id": 4 },
+        { "id": 5 }
+      ]
+    }
+  ]
+}

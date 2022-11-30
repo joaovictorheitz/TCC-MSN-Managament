@@ -2,8 +2,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   text-align: center;
 }
 
@@ -14,5 +13,4 @@
 #description {
   font-size: 1.2rem;
   margin-top: 2rem;
-}
-/*# sourceMappingURL=error.css.map */
+}/*# sourceMappingURL=error.css.map */

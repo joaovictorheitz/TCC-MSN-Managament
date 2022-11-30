@@ -1,97 +1,73 @@
 const MAX_QUERY_LIMIT = 21;
-
+const db = require("../db");
 var express = require("express");
+const { ObjectID } = require("bson");
 var router = express.Router();
 
-function pad(num, size) {
-  var s = "000000000000" + num;
-  return s.substr(s.length - size);
-}
+router.get("/add", (req, res) => {
+  res.render("add-product");
+});
 
-const products = {
-  products: [
-    {
-      id: 1,
-      title: "Tomate Cereja",
-      description: "",
-      price: 19.47,
-      profit: 110,
-      stock: 94,
-      format: "kg",
-      category: "fruits",
-      thumbnail:
-        "https://us-southeast-1.linodeobjects.com/storage/fluminense/media/uploads/produto/tomate_cereja_kg_05d99f87-ab61-425a-9d88-41dc750c5adb.png",
-      purchases: [
-        {
-          purchase_id: pad(1, 12),
-          purchase_date:
-            "Compra <span class='medium'>" +
-            new Date().toISOString().split("T")[0].replaceAll("-", "/") +
-            "</span>",
-          validity: "06-08-2022",
-          quantity: 4.27,
-          price: 20.9,
-          method: "Cartão de Crédito",
-          parcels: 1,
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: "Alface Crespa",
-      description: "",
-      price: 4.99,
-      profit: 110,
-      stock: 9.34,
-      format: "kg",
-      category: "vegetables",
-      thumbnail:
-        "https://images.squarespace-cdn.com/content/v1/5b8edfa12714e508f756f481/1543944726778-3R28J0BST06GRZCOF7UR/alface-crespa-verde-hidropo%CC%82nica.png?format=256w",
-      purchases: [
-        {
-          purchase_id: pad(1, 12),
-          purchase_date:
-            "Compra <span class='medium'>" +
-            new Date().toISOString().split("T")[0].replaceAll("-", "/") +
-            "</span>",
-          validity: "06-08-2022",
-          quantity: 4.27,
-          price: 20.9,
-          method: "Cartão de Crédito",
-          parcels: 1,
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: "Couve",
-      description: "",
-      price: 2.99,
-      profit: 110,
-      stock: 2.34,
-      format: "kg",
-      category: "vegetables",
-      thumbnail:
-        "https://static1.conquistesuavida.com.br/ingredients/9/54/52/09/@/24752--ingredient_detail_ingredient-2.png",
-      purchases: [
-        {
-          purchase_id: pad(1, 12),
-          purchase_date:
-            "Compra <span class='medium'>" +
-            new Date().toISOString().split("T")[0].replaceAll("-", "/") +
-            "</span>",
-          validity: "06-08-2022",
-          quantity: 4.27,
-          price: 20.9,
-          method: "Cartão de Crédito",
-          parcels: 1,
-        },
-      ],
-    },
-  ],
-};
+router.post("/add", async (req, res) => {
+  let image = null;
+  if (req.files) image = req.files.image;
 
-router.get("/search", function (req, res) {
+  console.log(image, req.files);
+
+  let data = req.body;
+  let id;
+
+  const stock = db.db("sabor_nordeste").collection("products");
+  await stock.insertOne(
+    {
+      title: data.title,
+      format: data.format,
+      price: parseFloat(parseFloat(data.price).toFixed(2)),
+      category: data.category,
+      purchases: [],
+      in_stock: 0,
+      profit: 100
+    },
+    async (err, result) => {
+      // console.log(err);
+      if (err) return console.log(err);
+
+      id = await result.insertedId.toString();
+
+      await stock.updateOne(
+        { _id: ObjectID(id) },
+        {
+          $set: {
+            thumbnail:
+              image == null
+                ? `/assets/placeholder.png`
+                : `/files/products/${id}.${
+                    image.name.split(".")[image.name.split(".").length - 1]
+                  }`,
+          },
+        }
+      );
+
+      if (image != null) {
+        image.mv(
+          process.cwd() +
+            `/files/products/${id}.${
+              image.name.split(".")[image.name.split(".").length - 1]
+            }`
+        );
+      }
+
+      res.status(200);
+      res.redirect(`/product/${id}`);
+    }
+  );
+});
+
+router.get("/search", async function (req, res) {
+  await db.connect();
+  const stock = db.db("sabor_nordeste").collection("products");
+  const products = await stock.find({}).toArray();
+
   let query = req.query.q;
   let limit = req.query.limit;
   let sort = req.query.sort;
@@ -113,19 +89,12 @@ router.get("/search", function (req, res) {
   let l = 0;
   let data = [];
 
-  products.products.forEach((product) => {
+  products.forEach((product) => {
     if (
       product.title.toLowerCase().includes(query.toLowerCase()) &&
       l < limit
     ) {
-      data.push({
-        id: product.id,
-        title: product.title,
-        thumbnail: product.thumbnail,
-        description: product.description,
-        price: product.price,
-        in_stock: product.stock,
-      });
+      data.push(product);
       l++;
     }
   });
@@ -133,13 +102,11 @@ router.get("/search", function (req, res) {
   if (sort != undefined) {
     let key = sort.split("-")[0];
     let direction = sort.split("-")[1];
-    console.log(
-      data.sort((a, b) => {
-        var x = a[key];
-        var y = b[key];
-        return x < y ? -1 : x > y ? 1 : 0;
-      })
-    );
+    data.sort((a, b) => {
+      var x = a[key];
+      var y = b[key];
+      return x < y ? -1 : x > y ? 1 : 0;
+    });
 
     if (direction == "desc") {
       data.reverse();

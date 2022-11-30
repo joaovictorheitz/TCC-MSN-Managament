@@ -13,7 +13,7 @@ function createWindow () {
   mainWindow.maximize()
 
   // and load the index.html of the app.
-  mainWindow.loadFile('public/login.html')
+  mainWindow.loadURL('http://localhost:3000')
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
