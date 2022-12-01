@@ -15,10 +15,9 @@
   width: 20rem;
   height: 18rem;
   border-radius: 16px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   background-color: #ede5dd;
-  padding: 3rem;
   box-sizing: border-box;
 }
 .product-info .product-thumbnail .edit-thumbnail {

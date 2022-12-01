@@ -17,10 +17,9 @@
   width: 16rem;
   height: 14rem;
   border-radius: 16px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   background-color: #ede5dd;
-  padding: 16px;
   box-sizing: border-box;
 }
 #product .product-info .product-thumbnail .edit-thumbnail {
@@ -42,8 +41,25 @@
   flex-direction: column;
   justify-content: space-between;
 }
-#product .product-info .product-data .product-title {
+#product .product-info .product-data .product-title-container {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+#product .product-info .product-data .product-title-container .product-title {
   font-weight: 600;
+  font-size: 26px;
+  background-color: transparent;
+  resize: horizontal;
+  width: 200px;
+  font-family: "Space Mono" !important;
+}
+#product .product-info .product-data .product-title-container .product-title:disabled {
+  color: #222;
+}
+#product .product-info .product-data .product-title-container img {
+  height: 18px;
 }
 #product .product-info .product-data #selling-details {
   display: flex;
@@ -59,8 +75,17 @@
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  align-items: center;
   margin-top: 12px;
+  position: relative;
+}
+#product .product-info .product-data #selling-details .selling-detail #product-price {
+  padding-left: 32px;
+}
+#product .product-info .product-data #selling-details .selling-detail #product-price ~ span {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 12px;
+  font-size: 0.8rem;
 }
 #product .product-info .product-data #selling-details .selling-detail .selling-detail-title {
   font-weight: 500;
@@ -71,13 +96,13 @@
   font-weight: 500;
   font-size: 14px;
   background-color: #ede5dd;
-  text-align: center;
   padding: 8px;
   border-radius: 8px;
   width: 96px;
   outline: none;
   border: none;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+  padding-left: 20px;
 }
 #product .product-info .product-data #add-new {
   display: flex;
@@ -143,4 +168,39 @@
 
 .small-text {
   font-size: 11px;
+}
+
+#warn {
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3137254902);
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+#warn button, #warn img {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s linear;
+  padding: 4px;
+  border-radius: 8px;
+}
+#warn button:hover, #warn img:hover {
+  background-color: #e3d9cf;
+}
+#warn button #confirm, #warn img #confirm {
+  width: 32px;
+  height: 32px;
+  background-color: #418c25;
+  -webkit-mask: url("/assets/check.svg") no-repeat center;
+  mask: url("/assets/check.svg") no-repeat center;
+}
+#warn button #cancel, #warn img #cancel {
+  padding: 8px;
+  width: 16px;
 }/*# sourceMappingURL=product.css.map */

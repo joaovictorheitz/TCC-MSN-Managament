@@ -49,11 +49,13 @@ $bg2-color: #e5d9cd;
     width: 48%;
     transition: all 0.5s cubic-bezier(0.34, 0.91, 0.34, 0.92);
 
-  &#add-new{
-    .product-image{
-      width: 32px;
+    &#add-new {
+      padding-top: 32px;
+      padding-bottom: 32px;
+      .product-image {
+        width: 24px;
+      }
     }
-  }
 
     .product-image {
       width: 5rem;

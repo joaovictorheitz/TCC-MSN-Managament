@@ -12,8 +12,6 @@ router.post("/add", async (req, res) => {
   let image = null;
   if (req.files) image = req.files.image;
 
-  console.log(image, req.files);
-
   let data = req.body;
   let id;
 
@@ -26,11 +24,10 @@ router.post("/add", async (req, res) => {
       category: data.category,
       purchases: [],
       in_stock: 0,
-      profit: 100
+      profit: 100,
     },
     async (err, result) => {
-      // console.log(err);
-      if (err) return console.log(err);
+      if (err) return res.sendStatus(500);
 
       id = await result.insertedId.toString();
 
@@ -114,6 +111,25 @@ router.get("/search", async function (req, res) {
   }
 
   res.send(data);
+});
+
+router.post("/:id/update", async (req, res) => {
+  const stock = db.db("sabor_nordeste").collection("products");
+  
+  let data = req.body
+  data.price = parseFloat(data.price)
+  data.profit = parseFloat(data.profit)
+
+  await stock.updateOne(
+    { _id: ObjectID(req.params.id) },
+    {
+      $set: req.body,
+    },
+    (err, success) => {
+      if (err) return res.sendStatus(500);
+      res.sendStatus(200);
+    }
+  );
 });
 
 module.exports = router;

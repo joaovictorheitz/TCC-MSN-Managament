@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/product.css" />
-    <script
-      src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
-      integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
-      crossorigin="anonymous"
-    ></script>
-    <script src="/js/product.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>    <script defer src="/js/product.js" defer></script>
     <script defer src="js/sidebar.js"></script>
     <title><%= product.title %> - Sabor do Nordeste</title>
   </head>
@@ -84,27 +79,31 @@
             </div>
 
             <div class="product-data">
-              <h1 class="product-title"><%= product.title %></h1>
+              <div class="product-title-container">
+                <input id="product-title" disabled oninput="resizeInput(this)" class="product-title" value="<%= product.title %>">
+                <img src="/assets/pencil.svg" alt="" id="edit-title" onclick="toggleTitleEdit()">
+              </div>
 
               <div id="selling-details">
-                <div class="selling-unit selling-detail">
-                  <span class="selling-detail-title"> Unidade </span>
-                  <select class="selling-detail-value" id="">
-                    <option value="un">Un</option>
-                    <option value="kg" <%= product.format == 'kg' ? "selected" : "" %>>Kg</option>
-                  </select>
-                </div>
                 <div class="selling-price selling-detail">
                   <span class="selling-detail-title"> Valor </span>
-                  <input class="selling-detail-value" value="R$<%=
-                  parseFloat(product.price).toFixed(2).replace(".", ',') %>" />
+                  <input id="product-price" class="selling-detail-value" type="number" step="0.01" value="<%=
+                  parseFloat(parseFloat(product.price).toFixed(2)) %>" />
+                  <span>R$</span>
+                </div>
+                <div class="selling-unit selling-detail">
+                  <span class="selling-detail-title"> Unidade </span>
+                  <select class="selling-detail-value" id="product-format">
+                    <option value="un">Unid.</option>
+                    <option value="kg" <%= product.format == 'kg' ? "selected" : "" %>>Kg</option>
+                  </select>
                 </div>
                 <div class="selling-profit selling-detail">
                   <span class="selling-detail-title"
                     >Lucro em <span class="semi-bold">%</span></span
                   >
-                  <input class="selling-detail-value"
-                  value=<%-parseFloat(product.profit).toFixed(2).replace(".", ',') %> />
+                  <input class="selling-detail-value" id="product-profit" type="number", step="0.01"
+                  value=<%-parseFloat(parseFloat(product.profit).toFixed(2)) %> />
                 </div>
                 <div class="in-stock selling-detail">
                   <span class="selling-detail-title">Estoque</span>
@@ -174,7 +173,14 @@
             <% }) %>
           </div>
         </div>
+
       </section>
+
+      <div id="warn" style="display: none;">
+        <div class="message">Houveram alterações que <span class="semi-bold">não foram salvas</span>, deseja salvar agora?</div>
+        <button onclick="updateData()"><div id="confirm"></div></button>
+        <button onclick="deleteData()"><img id="cancel" src="/assets/close.svg" alt=""></button>
+      </div>
     </div>
   </body>
 </html>

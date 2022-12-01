@@ -68,14 +68,21 @@ function toggleList() {
 }
 
 function title(str = "") {
-  return str[0].toUpperCase() + str.slice(1, str.length);
+  let str_arr = str.split(" ");
+  let result_arr = [];
+
+  str_arr.forEach((string) => {
+    result_arr.push(string[0].toUpperCase() + string.slice(1, string.length));
+  });
+
+  return result_arr.join(" ");
 }
 
 function render(productsJSON) {
   document.querySelectorAll(".product-card").forEach((e) => {
-    if (e.id != "add-new"){
-      e.remove()
-    };
+    if (e.id != "add-new") {
+      e.remove();
+    }
   });
 
   productsJSON.forEach((product) => {
@@ -90,9 +97,9 @@ function render(productsJSON) {
                         <div class="product-data">
                             <div class="product-data-tag">
                                 <span class="product-data-title">Preço</span>
-                                <span class="product-data">R$${
-                                  product.price
-                                }</span>
+                                <span class="product-data">R$${product.price
+                                  .toFixed(2)
+                                  .replaceAll(".", ",")}</span>
                             </div>
                             <div class="product-data-tag">
                                 <span class="product-data-title">Estoque</span>
@@ -114,6 +121,18 @@ function render(productsJSON) {
 
     products.append(productHtml);
   });
+
+  columns = $("#toggleList").data("columns") - 1;
+
+  document.querySelectorAll(".product-card").forEach((card) => {
+    $(card).css("width", `${100 / columns - 2}%`);
+  });
+
+  if (columns == 1) {
+    $("#products").css("row-gap", "12px");
+  } else {
+    $("#products").css("row-gap", "24px");
+  }
 }
 
 function query(searchQuery) {
@@ -134,3 +153,7 @@ searchInput.addEventListener("input", (e) => {
 });
 
 query(" ");
+
+$(document).on("load", (e) => {
+  query();
+});

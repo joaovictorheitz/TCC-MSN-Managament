@@ -69,7 +69,7 @@
             <img
               onclick="$(`#img-input`).click()"
               class="product-thumbnail-image"
-              src="/assets/logo.png"
+              src="/assets/placeholder.png"
               alt=""
               id="product-img"
             />
@@ -95,18 +95,6 @@
             />
 
             <div id="selling-details">
-              <div class="selling-unit selling-detail">
-                <span class="selling-detail-title"> Unidade </span>
-                <select
-                  class="selling-detail-value"
-                  id=""
-                  name="format"
-                  required
-                >
-                  <option value="un">Unid.</option>
-                  <option value="kg">Kg</option>
-                </select>
-              </div>
               <div class="selling-price selling-detail">
                 <span class="selling-detail-title"> Valor </span>
                 <input
@@ -119,13 +107,21 @@
                 />
                 <span>R$</span>
               </div>
-              <div class="selling-price selling-detail" id="category-select">
-                <span class="selling-detail-title"> Categoria </span>
+              <div class="selling-unit selling-detail">
+                <span class="selling-detail-title"> Unidade </span>
                 <select
                   class="selling-detail-value"
-                  name="category"
+                  id=""
+                  name="format"
                   required
                 >
+                  <option value="un">Unid.</option>
+                  <option value="kg">Kg</option>
+                </select>
+              </div>
+              <div class="selling-price selling-detail" id="category-select">
+                <span class="selling-detail-title"> Categoria </span>
+                <select class="selling-detail-value" name="category" required>
                   <option value="vegetais">Vegetais</option>
                   <option value="frutas">Frutas</option>
                   <option value="embalados">Embalados</option>

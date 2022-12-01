@@ -38,8 +38,12 @@
   width: 48%;
   transition: all 0.5s cubic-bezier(0.34, 0.91, 0.34, 0.92);
 }
+#products .product-card#add-new {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
 #products .product-card#add-new .product-image {
-  width: 32px;
+  width: 24px;
 }
 #products .product-card .product-image {
   width: 5rem;

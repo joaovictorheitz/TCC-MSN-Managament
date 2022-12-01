@@ -6,14 +6,14 @@ const fs = require("fs");
 const { ObjectID } = require("bson");
 
 async function productSelect(id) {
-  if (!ObjectID.isValid(id)){
+  if (!ObjectID.isValid(id)) {
     return undefined;
-  };
+  }
 
   await db.connect();
   const stock = db.db("sabor_nordeste").collection("products");
   const product = await stock.findOne({ _id: ObjectID(id) }).catch((err) => {
-    res.status(500)
+    res.status(500);
   });
 
   return product;
