@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/product.css" />
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>    <script defer src="/js/product.js" defer></script>
-    <script defer src="js/sidebar.js"></script>
+    <!-- <script defer src="js/sidebar.js"></script> -->
     <title><%= product.title %> - Sabor do Nordeste</title>
   </head>
 
@@ -88,7 +88,7 @@
                 <div class="selling-price selling-detail">
                   <span class="selling-detail-title"> Valor </span>
                   <input id="product-price" class="selling-detail-value" type="number" step="0.01" value="<%=
-                  parseFloat(parseFloat(product.price).toFixed(2)) %>" />
+                  parseFloat(product.price) %>" />
                   <span>R$</span>
                 </div>
                 <div class="selling-unit selling-detail">
@@ -103,7 +103,7 @@
                     >Lucro em <span class="semi-bold">%</span></span
                   >
                   <input class="selling-detail-value" id="product-profit" type="number", step="0.01"
-                  value=<%-parseFloat(parseFloat(product.profit).toFixed(2)) %> />
+                  value=<%-parseFloat(product.profit) %> />
                 </div>
                 <div class="in-stock selling-detail">
                   <span class="selling-detail-title">Estoque</span>
@@ -111,7 +111,7 @@
                 </div>
               </div>
 
-              <a id="add-new" href="/product/<%-product._id%>/add">
+              <button id="add-new" onclick="newBuy()">
                 <img class="add-icon" src="/assets/cart.svg" alt="" />
                 <div class="add-info">
                   <div class="add-title">Nova Compra</div>
@@ -126,7 +126,7 @@
                   src="/assets/arrow-next.svg"
                   alt=""
                 />
-              </a>
+              </button>
             </div>
           </div>
 
@@ -136,11 +136,16 @@
               <img src="/assets/bag.svg" class="buy-icon-shop" />
               <div class="buy-info">
                 <div class="buy-title">
-                  <div class="buy-title-date"><%-buy.purchase_date%></div>
-                  <div class="buy-title-id small-text"><%-buy.purchase_id%></div>
+                  <div class="buy-title-date"><%-buy.title%></div>
                 </div>
 
                 <div class="buy-data">
+                  <div class="buy-data-value">
+                    Data
+                    <span class="medium">
+                      <%=buy.date%>
+                    </span>
+                  </div>
                   <div class="buy-data-value">
                     Validade
                     <span class="medium">
@@ -150,13 +155,13 @@
                   <div class="buy-data-value">
                     Quantidade
                     <span class="medium">
-                      <%=buy.quantity.toFixed(2).replace(".", ",")%>
+                      <%=buy.quantity.toFixed(2).replace(".", ",")%><span class="regular"><%=product.format%></span>
                     </span>
                   </div>
                   <div class="buy-data-value">
                     Valor
                     <span class="medium">
-                      R$<%=buy.price.toFixed(2).replace(".", ",")%>
+                      R$<%=buy.value.toFixed(2).replace(".", ",")%>
                     </span>
                   </div>
                   <div class="buy-data-value">
@@ -174,13 +179,21 @@
           </div>
         </div>
 
+        <div id="warns">
+          <div class="warn" id="modification-warn" style="display: none;">
+            <div class="message">Houveram alterações que <span class="semi-bold">não foram salvas</span>, deseja salvar agora?</div>
+            <button onclick="updateData()"><div id="confirm"></div></button>
+            <button onclick="deleteData()"><img id="cancel" src="/assets/close.svg" alt=""></button>
+          </div>
+  
+          <div class="warn" id="newBuy-warn" style="display: none;">
+            <div class="message">Você ainda está preenchendo uma  <span class="semi-bold">nova compra</span></span>.</div>
+            <button id="dismiss-new-buy" onclick="dismissNewBuy()">Ok.</button>
+          </div>
+        </div>
       </section>
 
-      <div id="warn" style="display: none;">
-        <div class="message">Houveram alterações que <span class="semi-bold">não foram salvas</span>, deseja salvar agora?</div>
-        <button onclick="updateData()"><div id="confirm"></div></button>
-        <button onclick="deleteData()"><img id="cancel" src="/assets/close.svg" alt=""></button>
-      </div>
+      
     </div>
   </body>
 </html>

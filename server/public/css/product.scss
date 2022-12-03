@@ -6,6 +6,10 @@ $red: #dd3737;
 $bg-color: #ede5dd;
 $bg2-color: #e3d9cf;
 
+section {
+  position: relative;
+}
+
 #product {
   display: flex;
   flex-direction: column;
@@ -56,15 +60,14 @@ $bg2-color: #e3d9cf;
         width: 100%;
         display: flex;
         align-items: baseline;
-        gap: 16px;
+        gap: 12px;
 
         .product-title {
           font-weight: 600;
           font-size: 26px;
           background-color: transparent;
           resize: horizontal;
-          width: 200px;
-          font-family: "Space Mono" !important;
+          font-family: "Space Mono";
 
           &:disabled {
             color: $black;
@@ -131,6 +134,8 @@ $bg2-color: #e3d9cf;
         border-radius: 8px;
         box-sizing: inherit;
         box-shadow: $shadow;
+        text-align: left;
+        cursor: pointer;
 
         .add-icon {
           height: 32px;
@@ -156,7 +161,52 @@ $bg2-color: #e3d9cf;
   }
 
   #stock {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    input,
+    select {
+      border-radius: 8px;
+      padding: 4px 12px;
+    }
+
     .buy {
+      input {
+        font-family: "Space Mono";
+      }
+
+      &#addingBuy {
+        .buy-data-value span {
+          display: flex;
+          align-items: baseline;
+          gap: 4px;
+        }
+
+        #buy-date {
+          padding: 0;
+          color: $black;
+          font-family: "Poppins";
+        }
+
+        .buy-title-date {
+          display: flex;
+          align-items: center;
+          gap: 24px;
+        }
+
+        .saveBuy-btn {
+          display: grid;
+          place-items: center;
+          background-color: transparent;
+        }
+
+        #saveBuy {
+          width: 20px;
+          cursor: pointer;
+        }
+      }
+
       display: flex;
       gap: 40px;
       align-items: center;
@@ -179,6 +229,10 @@ $bg2-color: #e3d9cf;
           display: flex;
           gap: 32px;
           align-items: baseline;
+
+          input {
+            font-size: 17px;
+          }
         }
 
         .buy-data {
@@ -191,7 +245,11 @@ $bg2-color: #e3d9cf;
             font-size: 13px;
 
             .medium {
-              font-size: 15px;
+              font-size: 14px;
+            }
+
+            .suffix {
+              display: flex;
             }
           }
         }
@@ -204,11 +262,17 @@ $bg2-color: #e3d9cf;
   font-size: 11px;
 }
 
-#warn {
-  position: fixed;
-  bottom: 10%;
+#warns {
+  position: absolute;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.warn {
   box-shadow: 0 8px 16px #00000050;
   background-color: $white;
   border-radius: 8px;
@@ -216,8 +280,11 @@ $bg2-color: #e3d9cf;
   display: flex;
   align-items: center;
   gap: 16px;
+  font-size: 14px;
+  width: max-content;
 
-  button, img {
+  button,
+  img {
     display: flex;
     align-items: center;
     transition: all 0.2s linear;
@@ -229,17 +296,21 @@ $bg2-color: #e3d9cf;
     }
 
     #confirm {
-      width: 32px;
-      height: 32px;
+      width: 24px;
+      height: 24px;
 
       background-color: $green;
       -webkit-mask: url("/assets/check.svg") no-repeat center;
       mask: url("/assets/check.svg") no-repeat center;
     }
 
-    #cancel{
-      padding: 8px;
-      width: 16px;
+    #cancel {
+      padding: 6px;
+      width: 12px;
     }
   }
+}
+
+#dismiss-new-buy {
+  padding: 8px 12px;
 }

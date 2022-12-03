@@ -1,5 +1,6 @@
 const express = require("express");
 const fileUpload = require('express-fileupload')
+const bodyParser = require('body-parser');
 const finances = require("./routes/finances");
 const product = require("./routes/product");
 const files = require("./routes/files");
@@ -18,8 +19,9 @@ app.use(
 );
 
 app.use(fileUpload())
-
 app.use(express.json());
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 
 app.use("/auth", auth);
 app.use("/stock", stock);

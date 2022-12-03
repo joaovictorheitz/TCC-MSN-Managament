@@ -115,10 +115,10 @@ router.get("/search", async function (req, res) {
 
 router.post("/:id/update", async (req, res) => {
   const stock = db.db("sabor_nordeste").collection("products");
-  
-  let data = req.body
-  data.price = parseFloat(data.price)
-  data.profit = parseFloat(data.profit)
+
+  let data = req.body;
+  data.price = parseFloat(data.price);
+  data.profit = parseFloat(data.profit);
 
   await stock.updateOne(
     { _id: ObjectID(req.params.id) },
@@ -128,6 +128,29 @@ router.post("/:id/update", async (req, res) => {
     (err, success) => {
       if (err) return res.sendStatus(500);
       res.sendStatus(200);
+    }
+  );
+});
+
+router.post("/:id/newBuy", async (req, res) => {
+  const stock = db.db("sabor_nordeste").collection("products");
+  let data = req.body;
+
+  data.value = parseFloat(data.value);
+  data.quantity = parseFloat(data.quantity);
+  data.parcels = parseInt(data.parcels);
+
+  await stock.updateOne(
+    { _id: ObjectID(req.params.id) },
+    {
+      $inc: { in_stock: data.quantity },
+      $push: {
+        purchases: data,
+      },
+    },
+    (err, success) => {
+      if (err) return res.sendStatus(500);
+      res.redirect(`/product/${req.params.id}`);
     }
   );
 });

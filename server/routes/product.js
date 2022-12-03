@@ -13,7 +13,7 @@ async function productSelect(id) {
   await db.connect();
   const stock = db.db("sabor_nordeste").collection("products");
   const product = await stock.findOne({ _id: ObjectID(id) }).catch((err) => {
-    res.status(500);
+    return "ixi";
   });
 
   return product;
@@ -33,12 +33,6 @@ router.get("/:id", async function (req, res) {
   } else {
     res.render("product", { product: product });
   }
-});
-
-router.get("/:id/add", (req, res) => {
-  let product = productSelect(req.params.id);
-
-  res.render("new-buy", { product: product });
 });
 
 module.exports = router;

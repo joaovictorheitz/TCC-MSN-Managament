@@ -1,3 +1,7 @@
+section {
+  position: relative;
+}
+
 #product {
   display: flex;
   flex-direction: column;
@@ -45,15 +49,14 @@
   width: 100%;
   display: flex;
   align-items: baseline;
-  gap: 16px;
+  gap: 12px;
 }
 #product .product-info .product-data .product-title-container .product-title {
   font-weight: 600;
   font-size: 26px;
   background-color: transparent;
   resize: horizontal;
-  width: 200px;
-  font-family: "Space Mono" !important;
+  font-family: "Space Mono";
 }
 #product .product-info .product-data .product-title-container .product-title:disabled {
   color: #222;
@@ -113,6 +116,8 @@
   border-radius: 8px;
   box-sizing: inherit;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  cursor: pointer;
 }
 #product .product-info .product-data #add-new .add-icon {
   height: 32px;
@@ -130,6 +135,16 @@
 #product .product-info .product-data #add-new .add-info .add-desc {
   font-size: 13px;
 }
+#product #stock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#product #stock input,
+#product #stock select {
+  border-radius: 8px;
+  padding: 4px 12px;
+}
 #product #stock .buy {
   display: flex;
   gap: 40px;
@@ -138,6 +153,33 @@
   border-radius: 8px;
   background-color: #ede5dd;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+}
+#product #stock .buy input {
+  font-family: "Space Mono";
+}
+#product #stock .buy#addingBuy .buy-data-value span {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+#product #stock .buy#addingBuy #buy-date {
+  padding: 0;
+  color: #222;
+  font-family: "Poppins";
+}
+#product #stock .buy#addingBuy .buy-title-date {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+#product #stock .buy#addingBuy .saveBuy-btn {
+  display: grid;
+  place-items: center;
+  background-color: transparent;
+}
+#product #stock .buy#addingBuy #saveBuy {
+  width: 20px;
+  cursor: pointer;
 }
 #product #stock .buy .buy-icon-shop {
   height: 40px;
@@ -153,6 +195,9 @@
   gap: 32px;
   align-items: baseline;
 }
+#product #stock .buy .buy-info .buy-title input {
+  font-size: 17px;
+}
 #product #stock .buy .buy-info .buy-data {
   display: flex;
   justify-content: space-between;
@@ -163,18 +208,27 @@
   font-size: 13px;
 }
 #product #stock .buy .buy-info .buy-data .buy-data-value .medium {
-  font-size: 15px;
+  font-size: 14px;
+}
+#product #stock .buy .buy-info .buy-data .buy-data-value .suffix {
+  display: flex;
 }
 
 .small-text {
   font-size: 11px;
 }
 
-#warn {
-  position: fixed;
-  bottom: 10%;
+#warns {
+  position: absolute;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.warn {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3137254902);
   background-color: #fafafa;
   border-radius: 8px;
@@ -182,25 +236,37 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  font-size: 14px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
-#warn button, #warn img {
+.warn button,
+.warn img {
   display: flex;
   align-items: center;
   transition: all 0.2s linear;
   padding: 4px;
   border-radius: 8px;
 }
-#warn button:hover, #warn img:hover {
+.warn button:hover,
+.warn img:hover {
   background-color: #e3d9cf;
 }
-#warn button #confirm, #warn img #confirm {
-  width: 32px;
-  height: 32px;
+.warn button #confirm,
+.warn img #confirm {
+  width: 24px;
+  height: 24px;
   background-color: #418c25;
   -webkit-mask: url("/assets/check.svg") no-repeat center;
   mask: url("/assets/check.svg") no-repeat center;
 }
-#warn button #cancel, #warn img #cancel {
-  padding: 8px;
-  width: 16px;
+.warn button #cancel,
+.warn img #cancel {
+  padding: 6px;
+  width: 12px;
+}
+
+#dismiss-new-buy {
+  padding: 8px 12px;
 }/*# sourceMappingURL=product.css.map */

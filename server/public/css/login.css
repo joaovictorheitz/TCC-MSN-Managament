@@ -43,6 +43,23 @@ body {
   display: flex;
 }
 
+.placeholder {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  pointer-events: none;
+  background-color: #ede5dd;
+  padding: 0px 8px;
+  transition: 0.1s ease-in-out all;
+  color: rgba(34, 34, 34, 0.5647058824);
+  font-size: 1.1rem;
+}
+.placeholder.not-empty {
+  top: -0.2rem;
+  color: rgba(34, 34, 34, 0.5843137255);
+}
+
 input {
   box-sizing: border-box;
   height: -webkit-fit-content;
@@ -56,39 +73,19 @@ input {
   width: 100%;
   transition: 0.1s ease-in-out all;
 }
-input:valid + .placeholder {
-  position: absolute;
-  top: -1.1rem;
-  opacity: 1;
-  font-size: 0.85rem;
-}
-input:invalid + .placeholder {
-  top: -1.4rem;
-  opacity: 1;
-  color: #d05555;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
 input:focus + .placeholder {
-  top: -1.4rem;
-  opacity: 1;
-  font-size: 1rem;
-  padding: 6px;
+  top: -0.2rem;
+  color: #222;
+  padding: 0 6px;
   font-weight: 500;
+  color: #222;
+}
+input:valid:not(:focus) + .placeholder {
+  color: rgba(34, 34, 34, 0.5647058824);
+  font-size: 1rem;
 }
 input:focus {
   border: 3px solid #222;
-}
-
-.placeholder {
-  position: relative;
-  top: -38px;
-  left: 10px;
-  opacity: 0.7;
-  pointer-events: none;
-  background-color: #ede5dd;
-  padding: 4px;
-  transition: 0.1s ease-in-out all;
 }
 
 #submit_button {
