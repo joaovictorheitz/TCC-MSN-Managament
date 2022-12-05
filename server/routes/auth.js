@@ -4,20 +4,20 @@ const db = require("../db");
 const { createHash } = require("crypto");
 const dotenv = require("dotenv");
 
-dotenv.config();
-const TOKEN_SECRET = process.env.TOKEN_SECRET;
+// dotenv.config();
+// const TOKEN_SECRET = process.env.TOKEN_SECRET;
 
-//https://www.digitalocean.com/community/tutorials/nodejs-jwt-expressjs
-function generateAccessToken(email) {
-  return jwt.sign(email, process.env.TOKEN_SECRET, { expiresIn: "86400s" });
-}
+// //https://www.digitalocean.com/community/tutorials/nodejs-jwt-expressjs
+// function generateAccessToken(email) {
+//   return jwt.sign(email, process.env.TOKEN_SECRET, { expiresIn: "86400s" });
+// }
 
 router.post("/signup", async (req, res) => {
   await db.connect();
   const users = db.db("sabor_nordeste").collection("users");
 
-  const token = generateAccessToken({ email: req.body.email });
-  res.json(token);
+  // const token = generateAccessToken({ email: req.body.email });
+  // res.json(token);
 });
 
 router.post("/signin", async function (req, res) {
@@ -40,7 +40,17 @@ router.post("/signin", async function (req, res) {
     }
   }
 
-  res.send(userAuth);
+  let userData = {
+    profile_picture: user.profile_picture,
+    username: user.name,
+    job: user.job,
+    permissions: user.permissions,
+  };
+
+  res.send({
+    userAuth: userAuth,
+    userData: userAuth.passwordMatches ? userData : null,
+  });
 });
 
 module.exports = router;

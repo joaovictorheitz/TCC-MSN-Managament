@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/sells.css" />
+    <script src="/js/jquery.js"></script>
+    <script defer src="js/sidebar.js"></script>
+    <script defer src="js/sells.js"></script>
+    <title>Sabor do Nordeste</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav id="side-nav">
+        <div class="profile">
+          <img id="profile-picture" src="/assets/avatar.png" alt="" />
+          <div class="profile-user">
+            <span id="profile-name">Hugo Almeida</span>
+            <span id="profile-profession">Caixa</span>
+          </div>
+        </div>
+
+        <div class="nav-btns">
+          <div class="nav-links">
+            <a class="nav-link" href="/home">
+              <img src="/assets/home.svg" alt="" class="icon" />
+              <span>Tela Inicial</span>
+            </a>
+            <a class="nav-link" href="/sells/history">
+              <img src="/assets/history.svg" alt="" class="icon" />
+              <span>Histórico</span>
+            </a>
+          </div>
+          <div class="nav-actions">
+            <a class="nav-link" href="/admin">
+              <img src="/assets/admin.svg" alt="" class="icon" />
+              <span>Administração</span>
+            </a>
+
+            <a class="nav-link" href="/login">
+              <img src="/assets/exit.svg" alt="" class="icon" />
+              <span>Sair</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <section id="content">
+        <header>
+          <div id="go-back" onclick="history.back()">Voltar</div>
+
+          <div id="logo">
+            <img src="/assets/logo.png" alt="" />
+          </div>
+        </header>
+
+        <div id="container">
+          <div id="products">
+            <div id="actual-item">
+              <div class="actual-thumbnail">
+                <img
+                  src="/assets/box.svg"
+                  id="actual-thumbnail-image"
+                  alt=""
+                />
+              </div>
+              <div class="actual-data">
+                <div class="actual-title">
+                  <input
+                    oninput="resizeInput(this); search(this.value)"
+                    onclick="search('')"
+                    id="actual-title"
+                  />
+                  <div id="search-results"></div>
+                  <button id="confirmSell" onclick="confirmSell()">
+                    Adicionar
+                  </button>
+                </div>
+                <div class="actual-info">
+                  <div class="actual-info-item">
+                    <span>Quantidade</span>
+                    <div class="suffix">
+                      <input
+                        type="number"
+                        value="0"
+                        oninput="resizeInput(this)"
+                        class="actual-info-value"
+                        id="actual-item-quantity"
+                      />
+                      <span class="actual-item-format">un.</span>
+                    </div>
+                  </div>
+                  <div class="actual-info-item">
+                    <span>Valor unitário</span>
+                    <span class="actual-info-value">
+                      <div class="suffix">
+                        <span>R$</span>
+                        <span id="actual-item-price">0,00</span>
+                        <span class="small-text actual-item-format">/un</span>
+                      </div>
+                    </span>
+                  </div>
+                  <div class="actual-info-item">
+                    <span>Valor total</span>
+                    <span class="actual-info-value">
+                      <div class="suffix">
+                        <span>R$</span>
+                        <span id="actual-item-total">0,00</span>
+                      </div>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="past-products">
+              <span class="table-header">nº</span>
+              <span class="table-header">código</span>
+              <span class="table-header">nome prod.</span>
+              <span class="table-header">qtd.</span>
+              <span class="table-header">valor unit.</span>
+              <span class="table-header">total</span>
+            </div>
+          </div>
+
+          <div id="actions">
+            <div id="actions-info">
+              <div class="action full-line">
+                <span>Subtotal</span>
+                <span class="action-value"
+                  >R$ <span id="subtotal" class="monospace">0,00</span></span
+                >
+              </div>
+              <div class="action">
+                <span>Recebido</span>
+                <div class="suffix">
+                  <span>R$</span>
+                  <input
+                    oninput="resizeInput(this)"
+                    type="number"
+                    id="received"
+                    disabled
+                    value="0.00"
+                    step="0.01"
+                  />
+                </div>
+              </div>
+              <div class="action">
+                <span id="change-text">Troco</span>
+                <span class="action-value suffix">
+                  <span>R$</span>
+                  <span id="change" class="monospace">0,00</span></span
+                >
+              </div>
+
+              <div class="action full-line">
+                <span>Método de Pagamento</span>
+                <div class="flex">
+                  <select name="" id="sell-method">
+                    <option value="credit_card">Cartão de Créd.</option>
+                    <option value="debit_card">Cartão de Débt.</option>
+                    <option value="money">Dinheiro</option>
+                    <option value="prize">Prazo</option>
+                    <option value="pix">PIX</option>
+                  </select>
+                  <div class="suffix" id="sell-method-parcels">
+                    <input
+                      oninput="resizeInput(this)"
+                      type="number"
+                      id="parcels"
+                      value="1"
+                      step="1"
+                    />
+                    <span>×</span>
+                  </div>
+                </div>
+                <div id="prize-contact" style="display: none">
+                  Contato
+                  <input
+                    type="text"
+                    name=""
+                    id="prize-contact-input"
+                    class="not-resizeable"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button class="full-line action" id="finish" onclick="finishSell()">
+              Finalizar Compra
+            </button>
+          </div>
+        </div>
+
+        <div id="copied-warn" class="float-warn">
+          Código <span id="prod-id">638c1caa48cf1eaa89c6d469</span> foi copiado!
+        </div>
+
+        <div id="warns">
+          <div class="warn" id="prize-warn" style="display: none">
+            <div class="message">
+              O pagamento está
+              <span class="semi-bold">incompleto</span>, portanto é obrigatório
+              que você informe um método de contato com o cliente.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

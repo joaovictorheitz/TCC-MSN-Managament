@@ -1,0 +1,160 @@
+$shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+$black: #222;
+$white: #fafafa;
+$primary-color: #feb667;
+$bg-color: #ede5dd;
+$bg2-color: #e5d9cd;
+
+#stock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  input,
+  select {
+    border-radius: 8px;
+    padding: 4px 12px;
+  }
+
+  .buy {
+    position: relative;
+
+    input {
+      font-family: "Space Mono";
+    }
+
+    &#addingBuy {
+      .buy-data-value span {
+        display: flex;
+        align-items: baseline;
+        gap: 4px;
+      }
+
+      .buy-title-date {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+
+      .saveBuy-btn {
+        display: grid;
+        place-items: center;
+        background-color: transparent;
+      }
+
+      #saveBuy {
+        width: 20px;
+        cursor: pointer;
+      }
+    }
+
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding: 16px 24px;
+    border-radius: 8px;
+    background-color: $bg-color;
+    box-shadow: $shadow;
+
+    .buy-icon-shop {
+      height: 40px;
+    }
+
+    .buy-info {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      .buy-title {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        input {
+          font-size: 17px;
+        }
+      }
+
+      .buy-data {
+        display: flex;
+        justify-content: space-between;
+
+        .buy-data-value {
+          display: flex;
+          flex-direction: column;
+          font-size: 13px;
+
+          .medium {
+            font-size: 14px;
+          }
+
+          .suffix {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+
+.align-right {
+  text-align: right;
+}
+
+.toggle-items {
+  width: 16px;
+  rotate: -90deg;
+}
+
+.items-info {
+  z-index: 100;
+  position: fixed;
+  background-color: $bg-color;
+  width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 2rem;
+  max-height: 75vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+
+  .item-info {
+    background-color: $bg2-color;
+    padding: 1rem 2rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .item-title {
+      font-weight: 500;
+    }
+
+    .item-data {
+      display: flex;
+      gap: 20px;
+      font-size: 13px;
+
+      .item-data-value {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+#blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(4px) brightness(.4);
+}

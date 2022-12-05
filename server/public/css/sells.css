@@ -1,0 +1,352 @@
+header {
+  padding-bottom: 16px !important;
+}
+
+#container {
+  display: flex;
+  justify-content: space-between;
+  height: 80%;
+  border-radius: 16px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  background-color: #ede5dd;
+  padding: 2rem;
+  gap: 48px;
+}
+
+#products,
+#actions {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#products {
+  width: 65%;
+  flex-direction: column;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+}
+#products .suffix {
+  display: flex;
+  gap: 4px;
+  align-items: baseline;
+}
+#products .suffix input {
+  font-family: "Space Mono";
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+#products .suffix .small-text {
+  font-size: 11px;
+  margin-left: -2px;
+}
+#products #actual-item {
+  display: flex;
+  gap: 32px;
+}
+#products #actual-item .actual-thumbnail {
+  padding: 2rem;
+  box-sizing: content-box;
+  background-color: #ede5dd;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: grid;
+  place-items: center;
+}
+#products #actual-item .actual-thumbnail img {
+  width: 5rem;
+  height: 5rem;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+#products #actual-item .actual-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  width: 100%;
+}
+#products #actual-item .actual-data .actual-title {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+#products #actual-item .actual-data .actual-title #confirmSell {
+  padding: 4px 12px !important;
+  border-radius: 8px;
+  background-color: #fafafa;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+#products #actual-item .actual-data .actual-title #search-results {
+  position: absolute;
+  top: 100%;
+  background-color: #e3d9cf;
+  border-radius: 8px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: 160px;
+}
+#products #actual-item .actual-data .actual-title #search-results .search-result {
+  background-color: #e3d9cf;
+  transition: all 0.1s linear;
+  padding: 6px 12px;
+  font-size: 13px;
+  text-align: left;
+  font-weight: 500;
+}
+#products #actual-item .actual-data .actual-title #search-results .search-result:hover, #products #actual-item .actual-data .actual-title #search-results .search-result:focus {
+  background-color: #fafafa;
+}
+#products #actual-item .actual-data .actual-title #actual-title {
+  font-weight: 600;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: "Space Mono";
+}
+#products #actual-item .actual-data .actual-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+}
+#products #actual-item .actual-data .actual-info .actual-info-item {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+#past-products {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  display: grid;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  justify-content: space-between;
+  grid-template-areas: "a a a a a a";
+  grid-auto-rows: -webkit-min-content;
+  grid-auto-rows: min-content;
+  overflow-y: auto;
+  border-radius: 16px;
+}
+#past-products span {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 16ch;
+  font-family: "Space Mono";
+}
+#past-products span.prod-id {
+  max-width: 12ch;
+  cursor: pointer;
+}
+#past-products span.table-header {
+  background-color: #fafafa;
+  margin-bottom: 8px;
+  font-family: "Poppins";
+}
+#past-products span.suffix {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+#past-products span.suffix span {
+  padding: 0;
+}
+#past-products span.suffix .suffix-span {
+  font-family: "Poppins";
+  font-size: 10px;
+}
+
+.product-link {
+  cursor: pointer;
+}
+
+#actions {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  width: 35%;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+#actions .action {
+  padding: 12px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 35%;
+  gap: 4px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+#actions .action .action-value input,
+#actions .action .action-value .monospace {
+  font-family: "Space Mono";
+}
+#actions .action .suffix {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+#actions .action .suffix span {
+  font-size: 14px;
+}
+#actions .action .suffix span:first-of-type {
+  font-size: 13px;
+}
+#actions .action input {
+  width: 80%;
+  text-align: center;
+  font-size: 14px;
+  background-color: transparent;
+  font-family: "Space Mono";
+}
+#actions .action.full-line {
+  width: 100%;
+}
+#actions #actions-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  row-gap: 12px;
+  position: relative;
+}
+#actions #sell-method {
+  background-color: #ede5dd;
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#actions .flex {
+  font-family: "Space Mono";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+#actions .flex input {
+  padding: 5px 12px;
+  background-color: #ede5dd;
+  border-radius: 8px;
+  height: 100%;
+}
+
+.float-warn {
+  font-size: 12px;
+  font-family: "Space Mono";
+  background-color: rgba(34, 34, 34, 0.5019607843);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 4px 12px;
+  border-radius: 4px;
+  color: #fafafa;
+  transition: opacity 0.2s linear;
+  position: fixed;
+  opacity: 0;
+}
+.float-warn #prod-id {
+  color: hsl(128deg, 100%, 50%);
+}
+
+#prize-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+  gap: 8px;
+}
+#prize-contact input {
+  background-color: #ede5dd !important;
+  width: 100%;
+  padding: 4px 12px;
+  border-radius: 8px;
+}
+
+#warns {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.warn {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3137254902);
+  background-color: #fafafa;
+  border-radius: 8px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+.warn button,
+.warn img {
+  display: flex;
+  align-items: center;
+  transition: all 0.2s linear;
+  padding: 4px;
+  border-radius: 8px;
+}
+.warn button:hover,
+.warn img:hover {
+  background-color: #e3d9cf;
+}
+.warn button #confirm,
+.warn img #confirm {
+  width: 24px;
+  height: 24px;
+  background-color: hsl(128deg, 100%, 50%);
+  -webkit-mask: url("/assets/check.svg") no-repeat center;
+  mask: url("/assets/check.svg") no-repeat center;
+}
+.warn button #cancel,
+.warn img #cancel {
+  padding: 6px;
+  width: 12px;
+}/*# sourceMappingURL=sells.css.map */

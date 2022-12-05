@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/history.css" />
+    <script src="/js/jquery.js"></script>
+    <script defer src="/js/history.js"></script>
+    <script defer src="/js/sidebar.js"></script>
+    <title>Sabor do Nordeste</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <nav id="side-nav">
+        <div class="profile">
+          <img id="profile-picture" src="/assets/avatar.png" alt="" />
+          <div class="profile-user">
+            <span id="profile-name">Hugo Almeida</span>
+            <span id="profile-profession">Caixa</span>
+          </div>
+        </div>
+
+        <div class="nav-btns">
+          <div class="nav-links">
+            <a class="nav-link" href="/home">
+              <img src="/assets/home.svg" alt="" class="icon" />
+              <span>Tela Inicial</span>
+            </a>
+            <a class="nav-link" href="/sells">
+              <img src="/assets/cart.svg" alt="" class="icon" />
+              <span>Vender</span>
+            </a>
+          </div>
+          <div class="nav-actions">
+            <a class="nav-link" href="/admin">
+              <img src="/assets/admin.svg" alt="" class="icon" />
+              <span>Administração</span>
+            </a>
+
+            <a class="nav-link" href="/login">
+              <img src="/assets/exit.svg" alt="" class="icon" />
+              <span>Sair</span>
+            </a>
+          </div>
+        </div>
+      </nav>
+
+      <section id="content">
+        <header>
+          <div id="go-back" onclick="history.back()">Voltar</div>
+
+          <div id="logo">
+            <img src="/assets/logo.png" alt="" />
+          </div>
+        </header>
+
+        <div id="stock">
+          <% let order = 0; sells.forEach(buy => { %>
+          <div class="buy">
+            <img src="/assets/bag.svg" class="buy-icon-shop" />
+            <div class="buy-info">
+              <div class="buy-title">
+                <div class="buy-title-date">
+                  <span class="medium">
+                    <%const months = [ "jan.", "fev.", "mar.", "abr.", "mai.",
+                    "jun.", "jul.", "ago.", "set.", "out.", "nov.", "dez.", ];
+                    const days = ["dom.", "seg.", "ter.", "qua.", "qui.",
+                    "sex.", "sáb."]; let now = new Date(buy.datetime); var day =
+                    ("0" + now.getDate()).slice(-2); var month = ("0" +
+                    (now.getMonth() + 1)).slice(-2); var today =
+                    now.getFullYear() + "-" + month + "-" + day; let weekDay =
+                    days[now.getDay()]; let dateDay = now.getDate(); let
+                    monthString = months[now.getMonth()]; let year =
+                    now.getFullYear(); let dateString = `${weekDay}, ${dateDay}
+                    ${monthString} ${year}`; let hours = now.getHours(); let
+                    minutes = now.getMinutes(); let datetimeString =
+                    `${dateString}, ${hours}:${minutes}`; %> <%= datetimeString
+                    %>
+                  </span>
+                </div>
+                <img data-id="<%= order %>" <% order++ %>
+                onclick="" class="toggle-items" src="/assets/point-down.svg"
+                alt="" />
+                <div
+                  class="items-info"
+                  style="display: none"
+                  id="_<%- order %> "
+                >
+                  <% buy.items.forEach(item => { %>
+                  <div class="item-info">
+                    <div class="item-title">
+                      <div class="item-title-date">
+                        <span class="medium"> <%= item.title %> </span>
+                      </div>
+                    </div>
+
+                    <div class="item-data">
+                      <div class="item-data-value">
+                        Valor
+                        <span class="medium">
+                          R$<%=item.price.toFixed(2).replace(".",
+                          ",")%>/<%=item.format%>
+                        </span>
+                      </div>
+                      <div class="item-data-value">
+                        Formato
+                        <span class="medium"> <%=item.format%> </span>
+                      </div>
+                      <div class="item-data-value">
+                        Quantidade
+                        <span class="medium">
+                          <%=item.quantity%><%= item.format %>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <% }) %>
+                </div>
+              </div>
+
+              <div class="buy-data">
+                <div class="buy-data-value">
+                  Valor
+                  <span class="medium">
+                    R$<%=buy.value.toFixed(2).replace(".", ",")%>
+                  </span>
+                </div>
+                <div class="buy-data-value">
+                  Método Pgto.
+                  <span class="medium"> <%=buy.payment_method%> </span>
+                </div>
+                <% if (buy.payment_method == "Cartão de Crédito") { %>
+                <div class="buy-data-value">
+                  Parcelas
+                  <span class="medium"> <%=buy.parcels%>x </span>
+                </div>
+                <% } %> <% if (buy.payment_method == "Prazo") { %>
+                <div class="buy-data-value">
+                  A Pagar
+                  <span class="medium">
+                    R$<%=parseFloat(buy.value -
+                    buy.paid).toFixed(2).replaceAll(".",",")%>
+                  </span>
+                </div>
+                <div class="buy-data-value">
+                  Contato do Devedor
+                  <span class="medium"> <%=buy.client_contact%> </span>
+                </div>
+                <% } %>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        </div>
+      </section>
+    </div>
+
+    <div id="blur" style="display: none;"></div>
+  </body>
+</html>

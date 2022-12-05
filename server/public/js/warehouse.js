@@ -97,10 +97,9 @@ function render(productsJSON) {
                         <div class="product-data">
                             <div class="product-data-tag">
                                 <span class="product-data-title">Preço</span>
-                                <span class="product-data">R$${product.price.toString().replaceAll(
-                                  ".",
-                                  ","
-                                )}</span>
+                                <span class="product-data">R$${product.price
+                                  .toString()
+                                  .replaceAll(".", ",")}</span>
                             </div>
                             <div class="product-data-tag">
                                 <span class="product-data-title">Estoque</span>
@@ -138,8 +137,7 @@ function render(productsJSON) {
 
 function query(searchQuery) {
   fetch(
-    location.origin +
-      `/stock/search?q=${searchQuery.trim()}&limit=21&sort=${sortingMethod}-${sortingDirection}`
+    `/stock/search?q=${searchQuery.trim()}&limit=21&sort=${sortingMethod}-${sortingDirection}`
   ).then((r) =>
     r.json().then((js) => {
       render(js);

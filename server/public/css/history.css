@@ -1,0 +1,132 @@
+#stock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#stock input,
+#stock select {
+  border-radius: 8px;
+  padding: 4px 12px;
+}
+#stock .buy {
+  position: relative;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  padding: 16px 24px;
+  border-radius: 8px;
+  background-color: #ede5dd;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+}
+#stock .buy input {
+  font-family: "Space Mono";
+}
+#stock .buy#addingBuy .buy-data-value span {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+#stock .buy#addingBuy .buy-title-date {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+#stock .buy#addingBuy .saveBuy-btn {
+  display: grid;
+  place-items: center;
+  background-color: transparent;
+}
+#stock .buy#addingBuy #saveBuy {
+  width: 20px;
+  cursor: pointer;
+}
+#stock .buy .buy-icon-shop {
+  height: 40px;
+}
+#stock .buy .buy-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#stock .buy .buy-info .buy-title {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+#stock .buy .buy-info .buy-title input {
+  font-size: 17px;
+}
+#stock .buy .buy-info .buy-data {
+  display: flex;
+  justify-content: space-between;
+}
+#stock .buy .buy-info .buy-data .buy-data-value {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+}
+#stock .buy .buy-info .buy-data .buy-data-value .medium {
+  font-size: 14px;
+}
+#stock .buy .buy-info .buy-data .buy-data-value .suffix {
+  display: flex;
+}
+
+.align-right {
+  text-align: right;
+}
+
+.toggle-items {
+  width: 16px;
+  rotate: -90deg;
+}
+
+.items-info {
+  z-index: 100;
+  position: fixed;
+  background-color: #ede5dd;
+  width: 75%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  max-height: 75vh;
+  overflow-y: auto;
+  border-radius: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: space-between;
+}
+.items-info .item-info {
+  background-color: #e5d9cd;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.items-info .item-info .item-title {
+  font-weight: 500;
+}
+.items-info .item-info .item-data {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+}
+.items-info .item-info .item-data .item-data-value {
+  display: flex;
+  flex-direction: column;
+}
+
+#blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  -webkit-backdrop-filter: blur(4px) brightness(0.4);
+          backdrop-filter: blur(4px) brightness(0.4);
+}/*# sourceMappingURL=history.css.map */

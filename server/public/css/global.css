@@ -80,6 +80,8 @@ html {
   height: 56px;
   background-color: #e3d9cf;
   border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 #side-nav .profile .profile-user {
   display: flex;
@@ -233,6 +235,7 @@ html {
   content: "";
   display: inline-block;
   width: 50%;
+  max-width: 36px;
   height: 3px;
   background-color: #222;
   border-radius: 2px;
@@ -290,4 +293,12 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
   -moz-appearance: textfield;
+}
+
+button {
+  cursor: pointer;
+}
+
+[onclick] {
+  cursor: pointer;
 }/*# sourceMappingURL=global.css.map */

@@ -41,7 +41,6 @@
 #products .product-card#add-new {
   padding-top: 32px;
   padding-bottom: 32px;
-  flex-grow: 3;
 }
 #products .product-card#add-new .product-image {
   width: 24px;

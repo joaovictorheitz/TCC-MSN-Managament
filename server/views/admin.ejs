@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/global.css" />
-    <link rel="stylesheet" href="/css/error.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
     <script src="/js/jquery.js"></script>
     <script defer src="/js/sidebar.js"></script>
+    <script defer src="/js/admin.js"></script>
     <title>Sabor do Nordeste</title>
   </head>
 
@@ -45,16 +46,36 @@
 
       <section id="content">
         <header>
-          <div id="go-back" onclick="history.back()">Voltar</div>
+          <div id="go-back">Administração</div>
 
           <div id="logo">
             <img src="/assets/logo.png" alt="" />
           </div>
         </header>
 
-        <div id="error">
-          <h1 id="title"><%- error.title %></h1>
-          <p id="description"><%- error.description %></p>
+        <div id="admin">
+          <div id="user-info">
+            <div class="profile-picture">
+              <img src="" id="admin-profile-picture" alt="" />
+            </div>
+            <div class="profile-data">
+              <span class="username"></span>
+              <span class="job"></span>
+            </div>
+          </div>
+
+          <div id="settings">
+            <a class="setting" href="/admin/workers">
+              <img src="/assets/group.svg" alt="" />
+              <span>Funcionários</span>
+              <img class="next" src="/assets/point-down.svg" alt="" />
+            </a>
+            <a class="setting" href="/admin/business">
+              <img src="/assets/business.svg" alt="" />
+              <span>Mercearia Sabor do Nordeste</span>
+              <img class="next" src="/assets/point-down.svg" alt="" />
+            </a>
+          </div>
         </div>
       </section>
     </div>

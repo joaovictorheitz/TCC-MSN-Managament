@@ -1,0 +1,145 @@
+$shadow: 0px 8px 16px rgba(0, 0, 0, 0.05);
+$black: #222;
+$white: #fafafa;
+$primary-color: orange;
+$bg-color: #ede5dd;
+$bg2-color: #e3d9cf;
+
+#admin {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+
+  #user-info {
+    display: flex;
+
+    #admin-profile-picture {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .profile-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 6rem;
+      padding: 0.75rem 1.5rem;
+      box-sizing: border-box;
+
+      .username {
+        font-weight: 600;
+        font-size: 24px;
+      }
+
+      .job {
+        font-size: 18px;
+      }
+    }
+  }
+
+  #settings {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .setting {
+      padding: 1.25rem 2rem;
+      border-radius: 8px;
+      background-color: $bg-color;
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      cursor: pointer;
+
+      img {
+        width: 32px;
+        height: 32px;
+        object-fit: contain;
+
+        &.next {
+          rotate: -90deg;
+          height: 16px !important;
+          width: 16px;
+        }
+      }
+
+      span {
+        width: 100%;
+      }
+    }
+  }
+}
+
+#workers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .worker-card {
+    display: flex;
+    padding: 1rem 1.5rem;
+    gap: 24px;
+    background-color: $bg-color;
+    border-radius: 16px;
+
+    #newWorker {
+      width: 24px;
+    }
+
+    .newWorker {
+      font-size: 14px;
+    }
+
+    .worker-profile-picture {
+      width: 5rem;
+      height: 5rem;
+      object-fit: cover;
+      border-radius: 8px;
+      border-radius: 50%;
+    }
+
+    .worker-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .profile-data {
+        display: flex;
+        gap: 8px;
+        align-items: baseline;
+
+        .worker-username {
+          font-weight: 600;
+        }
+
+        .worker-job {
+          font-size: 13px;
+        }
+      }
+
+      .worker-permissions {
+        .permission-title {
+          font-size: 14px;
+        }
+
+        .permissions {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+
+          div {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            label {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

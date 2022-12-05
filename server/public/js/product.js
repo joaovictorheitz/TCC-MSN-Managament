@@ -116,6 +116,11 @@ function updateData() {
     },
     body: JSON.stringify({
       title: $("#product-title").val(),
+      searchTitle: $("#product-title")
+        .val()
+        .toString()
+        .replaceAll(" ", "")
+        .toLowerCase(),
       price: $("#product-price").val().replace(",", "."),
       format: $("#product-format").val(),
       profit: $("#product-profit").val().replace(",", "."),
@@ -138,8 +143,8 @@ function updateData() {
 
 let isAdding;
 
-function dismissNewBuy(){
-  $("#newBuy-warn").slideUp()
+function dismissNewBuy() {
+  $("#newBuy-warn").slideUp();
 }
 
 window.onbeforeunload = function () {
@@ -238,7 +243,9 @@ function newBuy() {
                   <div class="buy-data-value">
                     Quantidade
                     <span class="suffix">
-                      <input oninput="resizeInput(this)" type="number" name="quantity" class="medium" step="0.01" value="1.00">
+                      <input oninput="resizeInput(this)" type="number" name="quantity" class="medium" step="${
+                        format == "kg" ? 0.01 : 1
+                      }" value="1.00">
                       <span id="new-buy-format">${format}</span>
                     </span>
                   </div>
@@ -270,6 +277,11 @@ function newBuy() {
             </form>
             `)
   );
+
+  $("#addingBuy").on("submit", (e) => {
+    isAdding = false;
+    $("#newBuy-warn").slideUp();
+  });
 
   $("#buy-title")
     .val("Compra " + dateString)

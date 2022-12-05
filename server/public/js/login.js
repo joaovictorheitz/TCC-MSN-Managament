@@ -28,14 +28,16 @@ form.addEventListener("submit", (e) => {
     method: "POST",
     body: JSON.stringify({ email: emailValue, password: passwordValue }),
   }).then((r) =>
-    r.json().then((authRes) => {
+    r.json().then((response) => {
+      let authRes = response.userAuth;
+      let userData = response.userData;
+
       if (authRes.userExists) {
         $("#user-err").slideUp();
         if (authRes.passwordMatches) {
           $("#pass-err").slideUp();
-          // if(confirm('logar?')){
-          window.location = window.location.origin + "/home";
-          // }
+          sessionStorage.setItem("user", JSON.stringify(userData));
+          window.location = "/home";
         } else {
           $("#pass-err").slideDown();
         }

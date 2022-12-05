@@ -1,0 +1,380 @@
+$shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+$black: #222;
+$white: #fafafa;
+$primary-color: orange;
+$bg-color: #ede5dd;
+$bg2-color: #e3d9cf;
+$green: hsl(128, 100%, 50%);
+$red: #dd3737;
+
+header {
+  padding-bottom: 16px !important;
+}
+
+#container {
+  display: flex;
+  justify-content: space-between;
+  height: 80%;
+  border-radius: 16px;
+  box-shadow: $shadow;
+  background-color: $bg-color;
+  padding: 2rem;
+  gap: 48px;
+}
+
+#products,
+#actions {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#products {
+  width: 65%;
+  flex-direction: column;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+
+  .suffix {
+    display: flex;
+    gap: 4px;
+    align-items: baseline;
+
+    input {
+      font-family: "Space Mono";
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .small-text {
+      font-size: 11px;
+      margin-left: -2px;
+    }
+  }
+
+  #actual-item {
+    display: flex;
+    gap: 32px;
+
+    .actual-thumbnail {
+      padding: 2rem;
+      box-sizing: content-box;
+      background-color: $bg-color;
+      border-radius: 8px;
+      box-shadow: $shadow;
+      width: fit-content;
+      height: fit-content;
+      display: grid;
+      place-items: center;
+
+      img {
+        width: 5rem;
+        height: 5rem;
+        object-fit: contain;
+      }
+    }
+
+    .actual-data {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: max-content;
+      width: 100%;
+
+      .actual-title {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+
+        #confirmSell {
+          padding: 4px 12px !important;
+          border-radius: 8px;
+          background-color: $white;
+          height: min-content;
+        }
+
+        #search-results {
+          position: absolute;
+          top: 100%;
+          background-color: $bg2-color;
+          border-radius: 8px;
+          width: fit-content;
+          display: flex;
+          flex-direction: column;
+          overflow-y: auto;
+          max-height: calc(32px * 5);
+
+          .search-result {
+            background-color: $bg2-color;
+            transition: all 0.1s linear;
+            padding: 6px 12px;
+            font-size: 13px;
+            text-align: left;
+            font-weight: 500;
+
+            &:hover,
+            &:focus {
+              background-color: $white;
+            }
+          }
+        }
+
+        #actual-title {
+          font-weight: 600;
+          font-size: 18px;
+          padding: 6px 12px;
+          border-radius: 8px;
+          font-family: "Space Mono";
+        }
+      }
+
+      .actual-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 8px;
+
+        .actual-info-item {
+          align-items: center;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
+
+#past-products {
+  box-shadow: $shadow;
+  padding: 1.5rem;
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  display: grid;
+  grid-auto-columns: max-content;
+  justify-content: space-between;
+  grid-template-areas: "a a a a a a";
+  grid-auto-rows: min-content;
+  overflow-y: auto;
+  border-radius: 16px;
+
+  span {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 8px;
+    font-weight: 500;
+    height: fit-content;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 16ch;
+    font-family: "Space Mono";
+
+    &.prod-id {
+      max-width: 12ch;
+      cursor: pointer;
+    }
+
+    &.table-header {
+      background-color: $white;
+      margin-bottom: 8px;
+      font-family: "Poppins";
+    }
+
+    &.suffix {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+
+      span {
+        padding: 0;
+      }
+
+      .suffix-span {
+        font-family: "Poppins";
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.product-link {
+  cursor: pointer;
+}
+
+#actions {
+  box-shadow: $shadow;
+  width: 35%;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+
+  .action {
+    padding: 12px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    height: fit-content;
+    width: 35%;
+    gap: 4px;
+    border-radius: 8px;
+    font-size: 14px;
+
+    .action-value {
+      input,
+      .monospace {
+        font-family: "Space Mono";
+      }
+    }
+
+    .suffix {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+
+      span {
+        font-size: 14px;
+
+        &:first-of-type {
+          font-size: 13px;
+        }
+      }
+    }
+
+    input {
+      width: 80%;
+      text-align: center;
+      font-size: 14px;
+      background-color: transparent;
+      font-family: "Space Mono";
+    }
+
+    &.full-line {
+      width: 100%;
+    }
+  }
+
+  #actions-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    row-gap: 12px;
+    position: relative;
+  }
+
+  #sell-method {
+    background-color: $bg-color;
+    border-radius: 8px;
+    padding: 8px 12px;
+    width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .flex {
+    font-family: "Space Mono";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+
+    input {
+      padding: 5px 12px;
+      background-color: $bg-color;
+      border-radius: 8px;
+      height: 100%;
+    }
+  }
+}
+
+.float-warn {
+  font-size: 12px;
+  font-family: "Space Mono";
+  background-color: #22222280;
+  width: fit-content;
+  padding: 4px 12px;
+  border-radius: 4px;
+  color: $white;
+  transition: opacity 0.2s linear;
+
+  #prod-id {
+    color: $green;
+  }
+
+  position: fixed;
+  opacity: 0;
+}
+
+#prize-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 8px;
+  gap: 8px;
+
+  input {
+    background-color: $bg-color !important;
+    width: 100%;
+    padding: 4px 12px;
+    border-radius: 8px;
+  }
+}
+
+#warns {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.warn {
+  box-shadow: 0 8px 16px #00000050;
+  background-color: $white;
+  border-radius: 8px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  width: max-content;
+
+  button,
+  img {
+    display: flex;
+    align-items: center;
+    transition: all 0.2s linear;
+    padding: 4px;
+    border-radius: 8px;
+
+    &:hover {
+      background-color: $bg2-color;
+    }
+
+    #confirm {
+      width: 24px;
+      height: 24px;
+
+      background-color: $green;
+      -webkit-mask: url("/assets/check.svg") no-repeat center;
+      mask: url("/assets/check.svg") no-repeat center;
+    }
+
+    #cancel {
+      padding: 6px;
+      width: 12px;
+    }
+  }
+}

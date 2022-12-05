@@ -1,0 +1,117 @@
+#admin {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+#admin #user-info {
+  display: flex;
+}
+#admin #user-info #admin-profile-picture {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+#admin #user-info .profile-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 6rem;
+  padding: 0.75rem 1.5rem;
+  box-sizing: border-box;
+}
+#admin #user-info .profile-data .username {
+  font-weight: 600;
+  font-size: 24px;
+}
+#admin #user-info .profile-data .job {
+  font-size: 18px;
+}
+#admin #settings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+#admin #settings .setting {
+  padding: 1.25rem 2rem;
+  border-radius: 8px;
+  background-color: #ede5dd;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  cursor: pointer;
+}
+#admin #settings .setting img {
+  width: 32px;
+  height: 32px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+#admin #settings .setting img.next {
+  rotate: -90deg;
+  height: 16px !important;
+  width: 16px;
+}
+#admin #settings .setting span {
+  width: 100%;
+}
+
+#workers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#workers .worker-card {
+  display: flex;
+  padding: 1rem 1.5rem;
+  gap: 24px;
+  background-color: #ede5dd;
+  border-radius: 16px;
+}
+#workers .worker-card #newWorker {
+  width: 24px;
+}
+#workers .worker-card .newWorker {
+  font-size: 14px;
+}
+#workers .worker-card .worker-profile-picture {
+  width: 5rem;
+  height: 5rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+  border-radius: 50%;
+}
+#workers .worker-card .worker-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#workers .worker-card .worker-data .profile-data {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+#workers .worker-card .worker-data .profile-data .worker-username {
+  font-weight: 600;
+}
+#workers .worker-card .worker-data .profile-data .worker-job {
+  font-size: 13px;
+}
+#workers .worker-card .worker-data .worker-permissions .permission-title {
+  font-size: 14px;
+}
+#workers .worker-card .worker-data .worker-permissions .permissions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+#workers .worker-card .worker-data .worker-permissions .permissions div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+#workers .worker-card .worker-data .worker-permissions .permissions div label {
+  font-size: 13px;
+}/*# sourceMappingURL=admin.css.map */

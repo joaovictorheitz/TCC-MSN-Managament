@@ -7,7 +7,7 @@ $bg2-color: #e3d9cf;
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 
 * {
   margin: 0;
@@ -97,6 +97,7 @@ html {
       height: 56px;
       background-color: $bg2-color;
       border-radius: 50%;
+      object-fit: cover;
     }
 
     .profile-user {
@@ -260,6 +261,7 @@ html {
     content: "";
     display: inline-block;
     width: 50%;
+    max-width: 36px;
     height: 3px;
     background-color: $black;
     border-radius: 2px;
@@ -318,4 +320,12 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+button {
+  cursor: pointer;
+}
+
+[onclick] {
+  cursor: pointer;
 }

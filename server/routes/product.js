@@ -35,4 +35,20 @@ router.get("/:id", async function (req, res) {
   }
 });
 
+router.get("/:id/info", async function (req, res) {
+  let product = await productSelect(req.params.id);
+
+  if (product == undefined) {
+    res.status(404);
+    res.send("error", {
+      error: {
+        title: "404 🥴",
+        description: `Produto "<span class="bold">${req.params.id}</span>" não foi encontrado no estoque.`,
+      },
+    });
+  } else {
+    res.send(product);
+  }
+});
+
 module.exports = router;

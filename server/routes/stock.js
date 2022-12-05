@@ -14,11 +14,13 @@ router.post("/add", async (req, res) => {
 
   let data = req.body;
   let id;
+  let searchTitle = data.title.replaceAll(" ", "").toLowerCase();
 
   const stock = db.db("sabor_nordeste").collection("products");
   await stock.insertOne(
     {
       title: data.title,
+      searchTitle: searchTitle,
       format: data.format,
       price: parseFloat(parseFloat(data.price).toFixed(2)),
       category: data.category,
